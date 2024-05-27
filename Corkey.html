@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Corkey - Chrome OS Exploits</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="../../assets/icon.png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans">
+        <link rel="stylesheet" href="../../main.css">
+        <link rel="stylesheet" href="../detail.css">
+        <script src="../addheader.js"></script>
+        <script>
+            window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+            ga('create', 'UA-XXXXX-Y', 'auto');
+            ga('send', 'pageview');
+        </script>
+    <meta name="google-site-verification" content="weY0_IfasLpB3jj53TSPZIfHSBY2obh-2hIuFTVIrhw" /></head>
+    <body>
+        <div id="main-content">
+            <h3>
+                <span class="title">Corkey</span>
+                <br>
+                <small>
+                    AkaButNice, Bypassi#7037
+                    <br><em>Named by Ashton Davies & Brandon421-ops</em>
+                </small>
+                <p>
+            </h3>
+            <div class="note">If your organization does not allow you to sign in without a network, you should instead prevent internet access on your network.</div>
+            <p>
+            Corrupts extensions by interrupting the sync process.
+            <p>
+            <ol>
+                <h3>Instructions</h3>
+                <li>Powerwash the Chromebook.<p>Press <b>Ctrl</b>+<b>Alt</b>+<b>Shift</b>+<b>R</b> on the sign-in screen and confirm, or press <strong>Esc</strong> + <strong>Refresh</strong> <image class="nocolor" height="18px" src="../../assets/refresh.png" alt="↻"></image>, then press <strong>Power</strong> <image class="nocolor" height="18px" src="../../assets/power.png" alt="⏻"></image>.<p>Press <b>Ctrl</b>+<b>D</b> on the recovery screen<p>Press <b>Enter</b>.</li>
+                <li>Sign in.</li>
+                <li>Immediately disconnect from your network.</li>
+                <li>Press <strong>Refresh</strong> <image class="nocolor" height="18px" src="../../assets/refresh.png" alt="↻"></image> + <strong>Power</strong> <image class="nocolor" height="18px" src="../../assets/power.png" alt="⏻"></image> to instant restart.</li>
+                <li>Sign in as an existing user.</li>
+                <li>Navigate to <u>chrome://extensions</u>.</li>
+                <li>Connect to your network.</li>
+                <li>Wait for the targetted extension to automatically install.</li>
+                <li>Immediately disconnect from your network and sign out.</li>
+                <li>Sign in again.</li>
+            </ol>
+            The extension should now be corrupted. You can check at <u>chrome://extensions</u> if the extension is corrupted.
+        </div>
+    </body>
+</html>
