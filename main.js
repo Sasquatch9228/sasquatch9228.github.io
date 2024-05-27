@@ -1,4 +1,4 @@
-chromeVersion = navigator.userAgent.substring(navigator.userAgent.lastIndexOf("Chrome/"), navigator.userAgent.lastIndexOf(" "));
+NchromeVersion = navigator.userAgent.substring(navigator.userAgent.lastIndexOf("Chrome/"), navigator.userAgent.lastIndexOf(" "));
 chromeVersion = chromeVersion.substring(chromeVersion.indexOf("/"), chromeVersion.indexOf(".")).replaceAll("/", "");
 if (sessionStorage.getItem("version") == undefined) {
     if (chromeVersion > 121) {
@@ -39,7 +39,7 @@ function filterOptions(version) {
     if (localStorage.getItem("cloak") !== null && localStorage.getItem("cloak") !== undefined) {
         tabCloak(localStorage.getItem("cloak"));
     } else {
-        document.title =  "Exploits - EXT-REMOVER";
+        document.title =  "Exploits - EXTENSION-REMOVER";
     }
     const options = document.querySelectorAll(".optionButton");
     for (let i = 0; i < options.length; i++) {
