@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>EXT REMOVER</title>
+        <meta property="og:title" content="EXT-REMOVER">
+        <meta name="description" content="Collection of exploits for Chrome OS.">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="assets/icon.png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans">
+        <link rel="stylesheet" href="main.css">
+        <script defer src="main.js"></script>
+        <script src="detail/addheader.js"></script>
+        <script async src='https://www.google-analytics.com/analytics.js'></script>
+        <script>
+            window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+            ga('create', 'UA-XXXXX-Y', 'auto');
+            ga('send', 'pageview');
+        </script>
+    <meta name="google-site-verification" content="weY0_IfasLpB3jj53TSPZIfHSBY2obh-2hIuFTVIrhw" /></head>
+    <body>
+        <div id="bg-container"></div>
+        <noscript>
+            <div id="noscript">
+                JavaScript is not enabled in this browser.
+                <p>
+                <a href="https://support.google.com/adsense/answer/12654" target="_blank">More Information</a>
+            </div>
+            <style>
+                #main-content {
+                    display: none;
+                }
+                #noscript {
+                    width: 100%;
+                    position: absolute;
+                    top: 50%;
+                    translate: 0px -50%;
+                    text-align: center;
+                    user-select: text;
+                }
+            </style>
+        </noscript>
+        <div id="main-content">
+            <h1>
+                Chrome OS 
+                <select id="version" onchange="filterOptions(this.value);">
+                    <option>All</option>
+                    <option>121</option>
+                    <option>120</option>
+                    <option>119</option>
+                    <option>118</option>
+                    <option>117</option>
+                    <option>116</option>
+                    <option>115</option>
+                    <option>114</option>
+                    <option>113</option>
+                    <option>112</option>
+                    <option>111</option>
+                    <option>110</option>
+                    <option>109</option>
+                    <option>108</option>
+                    <option>107</option>
+                    <option>106</option>
+                    <option>105</option>
+                    <option>104</option>
+                    <option>103</option>
+                    <option>102</option>
+                </select>
+                <button class="settingsBtn" onclick="settings();"><svg enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;"><path d="M12 9.5c1.38 0 2.5 1.12 2.5 2.5s-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5 1.12-2.5 2.5-2.5m0-1c-1.93 0-3.5 1.57-3.5 3.5s1.57 3.5 3.5 3.5 3.5-1.57 3.5-3.5-1.57-3.5-3.5-3.5zM13.22 3l.55 2.2.13.51.5.18c.61.23 1.19.56 1.72.98l.4.32.5-.14 2.17-.62 1.22 2.11-1.63 1.59-.37.36.08.51c.05.32.08.64.08.98s-.03.66-.08.98l-.08.51.37.36 1.63 1.59-1.22 2.11-2.17-.62-.5-.14-.4.32c-.53.43-1.11.76-1.72.98l-.5.18-.13.51-.55 2.24h-2.44l-.55-2.2-.13-.51-.5-.18c-.6-.23-1.18-.56-1.72-.99l-.4-.32-.5.14-2.17.62-1.21-2.12 1.63-1.59.37-.36-.08-.51c-.05-.32-.08-.65-.08-.98s.03-.66.08-.98l.08-.51-.37-.36L3.6 8.56l1.22-2.11 2.17.62.5.14.4-.32c.53-.44 1.11-.77 1.72-.99l.5-.18.13-.51.54-2.21h2.44M14 2h-4l-.74 2.96c-.73.27-1.4.66-2 1.14l-2.92-.83-2 3.46 2.19 2.13c-.06.37-.09.75-.09 1.14s.03.77.09 1.14l-2.19 2.13 2 3.46 2.92-.83c.6.48 1.27.87 2 1.14L10 22h4l.74-2.96c.73-.27 1.4-.66 2-1.14l2.92.83 2-3.46-2.19-2.13c.06-.37.09-.75.09-1.14s-.03-.77-.09-1.14l2.19-2.13-2-3.46-2.92.83c-.6-.48-1.27-.87-2-1.14L14 2z"></path></svg></button>
+                <br>
+                <small id="filterMsg">Filter has been set automatically.</small>
+            </h1>
+            <h2>Extension</h2>
+            <a class='optionLink' href='/detail/ltbeef/'>
+                <div class="optionButton" id="LTBEEF" style="border-color: #4081BF;">
+                    <div hidden class="patch">106</div>
+                    <div class="thumbnail" style="background-image: url('detail/LTBEEF/assets/logo.png');"></div>
+                    <h3>
+                        <image height="40px" src="detail/LTBEEF/assets/icon.png"></image>
+                        <span class="title">LTBEEF</span>
+                    </h3>
+                    Disable extensions
+                </div>
+            </a>
+            <a class='optionLink' href='/detail/jpcmg/'>
+                <div class="optionButton" id="JPCMG" style="border-color: rgb(85, 102, 221);">
+                    <div hidden class="patch">none</div>
+                    <div class="thumbnail" style="background-image: url('detail/JPCMG/assets/capture.png');"></div>
+                    <h3>
+                        <span class="title">JPCMG</span>
+                    </h3>
+                    Disable extensions with service workers
+                </div>
+            </a>
+            <a class="optionLink" href="detail/Ingot for iBoss/index.html">
+                <div class="optionButton" id="Ingot for iBoss" style="border-color: rgb(101, 233, 83);">
+                    <div hidden class="patch">115</div>
+                    <div class="thumbnail" style="background-image: url('detail/Ingot for iBoss/assets/capture.png');"></div>
+                    <h3>
+                        <image height="40px" src="detail/Ingot for iBoss/assets/icon.png"></image>
+                        <span class="title">Ingot for iBoss</span>
+                    </h3>
+                    Ingot designed for the iBoss extension
+                </div>
+            </a>
+            <a class='optionLink' href='/detail/lomoh/'>
+                <div class="optionButton" id="LoMoH" style="border-color: blueviolet;">
+                    <div hidden class="patch">111</div>
+                    <div class="thumbnail" style="background-image: url('detail/LoMoH/assets/capture.png');"></div>
+                    <h3>
+                        <image src="detail/LoMoH/assets/icon.png"></image>
+                        <span class="title">LoMoH</span>
+                    </h3>
+                    Disable extensions using the locked mode feature
+                </div>
+            </a>
+            <a class='optionLink' href='/detail/ltmeat/'>
+                <div class="optionButton" id="LTMEAT" style="border-color: #df68bf;">
+                    <div hidden class="patch">115</div>
+                    <div class="thumbnail" style="background-image: url('detail/LTMEAT/assets/thumbnail.png');"></div>
+                    <h3>
+                        <image src="detail/LTMEAT/assets/icon.png"></image>
+                        <span class="title">LTMEAT</span>
+                    </h3>
+                    Freeze extensions with debug URLs
+                </div>
+            </a>
+            <a class="optionLink" href="detail/LTMEAT Flood/index.html">
+                <div class="optionButton" id="LTMEAT Flood" style="border-color: #df68bf;">
+                    <div hidden class="patch">none</div>
+                    <div class="thumbnail"></div>
+                    <h3>
+                        <image src="detail/LTMEAT/assets/icon.png"></image>
+                        <span class="title">LTMEAT <small>[Flood]</small></span>
+                    </h3>
+                    Freeze extensions naturally by flooding extension pages
+                </div>
+            </a>
+            <a class="optionLink" href="detail/LTMEAT Print/index.html">
+                <div class="optionButton" id="LTMEAT [Print]" style="border-color: #df68bf;">
+                    <div hidden class="patch">none</div>
+                    <div class="thumbnail"></div>
+                    <h3>
+                        <image src="detail/LTMEAT/assets/icon.png"></image>
+                        <span class="title">LTMEAT <small>[Print]</small></span>
+                    </h3>
+                    Freeze extensions temporarily with the print dialog
+                </div>
+            </a>
+            <a class='optionLink' href='/detail/dextensify/'>
+                <div class="optionButton" id="Dextensify" style="border-color: #33626c;">
+                    <div hidden class="patch">none</div>
+                    <div class="thumbnail" style="background-image: url('detail/Dextensify/assets/capture.png');"></div>
+                    <h3>
+                        <image src="detail/Dextensify/assets/icon.png"></image>
+                        <span class="title">Dextensify</span>
+                    </h3>
+                    Freeze extensions temporarily by flooding iframes in a webpage
+                </div>
+            </a>
+            <a class="optionLink" href="detail/Crosh & VMC Disable Extensions/index.html">
+                <div class="optionButton" id="Crosh & VMC Disable Extensions" style="border-color: #F5E366;">
+                    <div hidden class="patch">none</div>
+                    <div class="thumbnail"></div>
+                    <h3>
+                        <span class="title">Crosh & VMC Disable Extensions</span>
+                    </h3>
+                    Powerwash & block automatic extension installation
+                </div>
+            </a>
+            <a class='optionLink' href='/detail/corkey/'>
+                <div class="optionButton" id="Corkey" style="border-color: orange;">
+                    <div hidden class="patch">none</div>
+                    <div class="thumbnail"></div>
+                    <h3>
+                        <span class="title">Corkey</span>
+                    </h3>
+                    Corrupt extensions
+                </div>
+            </a>
+            <a class='optionLink' href='/detail/swamp/'>
+                <div class="optionButton" id="Swamp" style="border-color: #99edc3;">
+                    <div hidden class="patch">115</div>
+                    <div class="thumbnail" style="background-image: url('detail/Swamp/assets/capture.png');"></div>
+                    <h3>
+                        <span class="title">Swamp</span>
+                    </h3>
+                    Run scripts on privileged extensions
+                </div>
+            </a>
+            <a class='optionLink' href='/detail/insecurly/'>
+                <div class="optionButton" id="INSECURLY" style="border-color: black;">
+                    <div hidden class="patch">none</div>
+                    <div class="thumbnail" style="background-image: url('detail/INSECURLY/assets/capture.png');"></div>
+                    <h3>
+                        <image src="detail/INSECURLY/assets/icon.png"></image>
+                        <span class="title">INSECURLY</span>
+                    </h3>
+                    Toggle the Securly extension
+                </div>
+            </a>
+            <a class='optionLink' href='/detail/killcurly/'>
+                <div class="optionButton" id="Killcurly" style="border-color: #0073e6;">
+                    <div hidden class="patch">none</div>
+                    <div class="thumbnail"></div>
+                    <h3>
+                        <span class="title">Killcurly</span>
+                    </h3>
+                    Kill extensions by signing out
+                </div>
+            </a>
+            <a class='optionLink' href='/detail/blank3r/'>
+                <div class="optionButton" id="Blank3r" style="border-color: lightblue;">
+                    <div hidden class="patch">115</div>
+                    <div class="thumbnail"></div>
+                    <h3>
+                        <span class="title">Blank3r</span>
+                    </h3>
+                    Reload extensions continuously
+                </div>
+            </a>
+            <a class='optionLink' href='/detail/chaos/'>
+                <div class="optionButton" id="Chaos" style="border-color: black;">
+                    <div hidden class="patch">none</div>
+                    <div class="thumbnail"></div>
+                    <h3>
+                        <span class="title">Chaos</span>
+                    </h3>
+                    Bypass Hapara Highlights & Hapara Filter
+                </div>
+            </a>
+            <a class="optionLink" href="detail/Extension Installer/index.html">
+                <div class="optionButton" id="Extension Installer" style="border-color: lightgray;">
+                    <div hidden class="patch">115</div>
+                    <div class="thumbnail" style="background-image: url('detail/Extension Installer/assets/capture.png');"></div>
+                    <h3>
+                        <image src="https://ssl.gstatic.com/chrome/webstore/images/icon_48px.png"></image>
+                        <span class="title">Extension Installer</span>
+                    </h3>
+                    Install extensions while the Chrome Web Store is blocked
+                </div>
+            </a>
+            <h2>Script Execution</h2>
+            <a class="optionLink" href="detail/Bookmarklet Executor/index.html">
+                <div class="optionButton" id="Bookmarklet Executor" style="border-color: #0F52BA;">
+                    <div hidden class="patch">none</div>
+                    <div class="thumbnail" style="background-image: url('detail/Bookmarklet Executor/assets/capture.png');"></div>
+                    <h3>
+                        <span class="title">Bookmarklet Executor</span>
+                    </h3>
+                    Execute bookmarklets on the Chrome Web Store
+                </div>
+            </a>
+            <a class='optionLink' href='/detail/urun/'>
+                <div class="optionButton" id="uRun" style="border-color: #800000;">
+                    <div hidden class="patch">none</div>
+                    <div class="thumbnail" style="background-image: url('detail/uRun/assets/thumbnail.png');"></div>
+                    <h3>
+                        <span class="title">uRun</span>
+                    </h3>
+                    Execute scripts with the "uBlock Origin" extension
+                </div>
+            </a>
+            <a class='optionLink' href='/detail/snap&run/'>
+                <div class="optionButton" id="Snap&Run" style="border-color: #2047DB;">
+                    <div hidden class="patch">none</div>
+                    <div class="thumbnail" style="background-image: url('detail/Snap&Run/assets/thumbnail.png');"></div>
+                    <h3>
+                        <span class="title">Snap&Run</span>
+                    </h3>
+                    Execute scripts with the "Snap&Read" extension
+                </div>
+            </a>
+            <h2>Webview</h2>
+            <a class='optionLink' href='/detail/incognito/'>
+                <div class="optionButton" id="Incognito" style="border-color: red;">
+                    <div hidden class="patch">115</div>
+                    <div class="thumbnail" style="background-image: url('detail/Incognito/assets/capture.png');"></div>
+                    <h3>
+                        <image src="detail/Incognito/assets/icon.svg"></image>
+                        <span class="title">Incognito</span>
+                    </h3>
+                    Open a window in Incognito mode
+                </div>
+            </a>
+            <a class='optionLink' href='/detail/quickview/'>
+                <div class="optionButton" id="QuickView" style="border-color: green;">
+                    <div hidden class="patch">115</div>
+                    <div class="thumbnail"></div>
+                    <h3>
+                        <image src="detail/QuickView/assets/icon.png"></image>
+                        <span class="title">QuickView</span>
+                    </h3>
+                    Universal webview utilizing the QuickOffice component extension
+                </div>
+            </a>
+            <a class='optionLink' href='/detail/buypass/'>
+                <div class="optionButton" id="Buypass" style="border-color: #93adff;">
+                    <div hidden class="patch">none</div>
+                    <div class="thumbnail"></div>
+                    <h3>
+                        <image src="detail/Buypass/assets/icon.ico"></image>
+                        <span class="title">Buypass</span>
+                    </h3>
+                    Opening blocked sites with the PaymentRequest API
+                </div>
+            </a>
+            <a class='optionLink' href='/detail/baghdad/'>
+                <div class="optionButton" id="Baghdad" style="border-color: red;">
+                    <div hidden class="patch">none</div>
+                    <div class="thumbnail"></div>
+                    <h3>
+                        <span class="title">Baghdad</span>
+                    </h3>
+                    Browse in the captive portal window on the sign-in screen
+                </div>
+            </a>
+            <h2>System</h2>
+            <a class='optionLink' href='/detail/sh1mmer/'>
+                <div class="optionButton" id="Sh1mmer" style="border-color: mediumaquamarine;">
+                    <div hidden class="patch">111</div>
+                    <div class="thumbnail" style="background-image: url('detail/Sh1mmer/assets/capture.png');"></div>
+                    <h3>
+                        <image src="detail/Sh1mmer/assets/icon.png"></image>
+                        <span class="title">Sh1mmer</span>
+                    </h3>
+                    Unenroll with an RMA shim
+                </div>
+            </a>
+            <a class='optionLink' href='/detail/cryptosmite/'>
+                <div class="optionButton" id="CryptoSmite" style="border-color: lightgray;">
+                    <div hidden class="patch">119</div>
+                    <div class="thumbnail"></div>
+                    <h3>
+                        <span class="title">CryptoSmite</span>
+                    </h3>
+                    Unenroll with stateful files
+                </div>
+            </a>
+            <a class='optionLink' href='/detail/fakemurk/'>
+                <div class="optionButton" id="Fakemurk" style="border-color: darkcyan;">
+                    <div hidden class="patch">118</div>
+                    <div class="thumbnail" style="background-image: url('detail/Fakemurk/assets/shell.webp');"></div>
+                    <h3>
+                        <span class="title">Fakemurk</span>
+                    </h3>
+                    Re-enroll with developer mode & enable USB boot in verified mode
+                </div>
+            </a>
+            <a class='optionLink' href='/detail/shimboot/'>
+                <div class="optionButton" id="Shimboot" style="border-color: black;">
+                    <div hidden class="patch">111</div>
+                    <div class="thumbnail"></div>
+                    <h3>
+                        <span class="title">Shimboot</span>
+                    </h3>
+                    Boot Debian Linux without unenrolling or modifying firmware
+                </div>
+            </a>
+            <a class='optionLink' href='/detail/terraos/'>
+                <div class="optionButton" id="TerraOS" style="border-color: #d75fff;">
+                    <div hidden class="patch">none</div>
+                    <div class="thumbnail" style="background-image: url('detail/TerraOS/assets/capture.png');"></div>
+                    <h3>
+                        <span class="title">TerraOS</span>
+                    </h3>
+                    Boot Linux-based operating systems from an RMA shim
+                </div>
+            </a>
+            <a class="optionLink" href="detail/Enterprise Enrollment Glitch/index.html">
+                <div class="optionButton" id="Enterprise Enrollment Glitch" style="border-color: darkturquoise;">
+                    <div hidden class="patch">118</div>
+                    <div class="thumbnail" style="background-image: url('detail/Enterprise Enrollment Glitch/assets/devicesetup.jpg');"></div>
+                    <h3>
+                        <span class="title">Enterprise Enrollment Glitch</span>
+                    </h3>
+                    Bypass enrollment setup
+                </div>
+            </a>
+            <a class='optionLink' href='/detail/skiovox/'>
+                <div class="optionButton" id="SKIOVOX" style="border-color: #8000ff;">
+                    <div hidden class="patch">121</div>
+                    <div class="thumbnail" style="background-image: url('detail/SKIOVOX/assets/capture.png');"></div>
+                    <h3>
+                        <image src="detail/SKIOVOX/assets/icon.png"></image>
+                        <span class="title">SKIOVOX</span>
+                    </h3>
+                    Use Chrome in a kiosk profile
+                </div>
+            </a>
+            <a class="optionLink" href="detail/Tr3nch">
+                <div class="optionButton" id="Tr3nch" style="border-color: #2C3E50;">
+                    <div hidden class="patch">121</div>
+                    <div class="thumbnail" style="background-image: url('detail/Tr3nch/assets/thumbnail.png');"></div>
+                    <h3>
+                        <image src="detail/Tr3nch/assets/icon.svg"></image>
+                        <span class="title">Tr3nch</span>
+                    </h3>
+                    Execute scripts in Chrome pages with SKIOVOX Breakout & Sh0vel
+                </div>
+            </a>
+            <a class='optionLink' href='/detail/downgrade/'>
+                <div class="optionButton" id="Downgrade" style="border-color: dodgerblue;">
+                    <div hidden class="patch">none</div>
+                    <div class="thumbnail" style="background-image: url('detail/Downgrade/assets/recovery.png');"></div>
+                    <h3>
+                        <span class="title">Downgrade</span>
+                    </h3>
+                    Revert to a previous version
+                </div>
+            </a>
+            <a class='optionLink' href='/detail/pollen/'>
+                <div class="optionButton" id="Pollen" style="border-color: #ffea00;">
+                    <div hidden class="patch">none</div>
+                    <div class="thumbnail" style="background-image: url('detail/Pollen/assets/thumbnail.svg');"></div>
+                    <h3>
+                        <image src="detail/Pollen/assets/icon.png"></image>
+                        <span class="title">Pollen</span>
+                    </h3>
+                    User policy editor
+                </div>
+            </a>
+            <a class='optionLink' href='/detail/caub/'>
+                <div class="optionButton" id="CAUB" style="border-color: skyblue;">
+                    <div hidden class="patch">none</div>
+                    <div class="thumbnail" style="background-image: url('detail/CAUB/assets/capture.png');"></div>
+                    <h3>
+                        <span class="title">CAUB</span>
+                    </h3>
+                    Prevent automatic updates
+                </div>
+            </a>
+            <h2>Hardware</h2>
+            <a class="optionLink" href="detail/Pencil Method/index.html">
+                <div class="optionButton" id="Pencil Method" style="border-color: green;">
+                    <div hidden class="patch">none</div>
+                    <div class="thumbnail" style="background-image: url('detail/Pencil Method/assets/thumbnail.png');"></div>
+                    <h3>
+                        <image src="detail/Pencil Method/assets/icon.png"></image>
+                        <span class="title">Pencil Method</span>
+                    </h3>
+                    Unenroll by bridging pins on the motherboard
+                </div>
+            </a>
+            <h2>Proxy</h2>
+            <a class='optionLink' href='/detail/caudns/'>
+                <div class="optionButton" id="cauDNS" style="border-color: lightgray;">
+                    <div hidden class="patch">none</div>
+                    <div class="thumbnail" style="background-image: url('detail/cauDNS/assets/thumbnail.png');"></div>
+                    <h3>
+                        <image src="detail/cauDNS/assets/icon.png"></image>
+                        <span class="title">cauDNS</span>
+                    </h3>
+                    Block requests from certain filtering extensions and set custom name servers
+                </div>
+            </a>
+            <a class='optionLink' href='/detail/omadadns/'>
+                <div class="optionButton" id="OmadaDNS" style="border-color: #AA332D;">
+                    <div hidden class="patch">none</div>
+                    <div class="thumbnail" style="background-image: url('detail/OmadaDNS/assets/thumbnail.png');"></div>
+                    <h3>
+                        <image src="detail/OmadaDNS/assets/icon.png"></image>
+                        <span class="title">OmadaDNS</span>
+                    </h3>
+                    Block requests from certain filtering extensions
+                </div>
+            </a>
+            <a class='optionLink' href='/detail/alphabetic/'>
+                <div class="optionButton" id="Alphabetic" style="border-color: black;">
+                    <div hidden class="patch">none</div>
+                    <div class="thumbnail"></div>
+                    <h3>
+                        <span class="title">Alphabetic</span>
+                    </h3>
+                    Cloaking proxy launcher
+                </div>
+            </a>
+            <a class='optionLink' href='/detail/sample/'>
+                <div class="optionButton" id="Sample" style="border-color: white;">
+                    <div hidden class="patch">Hidden</div>
+                    <div class="thumbnail" style="background-image: url('detail/Sample/assets/thumbnail.png');"></div>
+                    <h3>
+                        <image src="detail/Sample/assets/icon.png"></image>
+                        <span class="title">Sample</span>
+                    </h3>
+                    Short description
+                </div>
+            </a>
+        </div>
+        <div hidden class="noclick" id="noclick">
+            <div hidden class="details" id="details">
+                <div class="close" id="close" title="Close">
+                    <div class="nocolor"></div>
+                </div>
+                <center>
+                    <header id="divHeader">Details</header>
+                </center>
+                <div hidden class="divContent" id="settingsContent">
+                    <input hidden id="lightOptn" type="radio" name="theme" value="Light">
+                    <label hidden class="radioLbl" for="lightOptn">Light</label>
+                    <input hidden id="darkOptn" type="radio" name="theme" value="Dark">
+                    <label hidden class="radioLbl" for="darkOptn">Dark</label>
+                        <h2 class="section-title">Cloaking</h2>
+                        <div class="section">
+                            <span class="setting" id="none" onload="this.checked = localStorage.getItem('tabCloak') == this.id;" onclick="checked = 1; tabCloak(this.id);">None</span>
+                            <span class="setting" id="‎" onload="this.checked = localStorage.getItem('tabCloak') == this.id;" onclick="checked = 1; tabCloak(this.id);">Empty</span>
+                            <span class="setting" id="Google" onload="this.checked = localStorage.getItem('tabCloak') == this.id;" onclick="checked = 1; tabCloak(this.id);">Google</span>
+                            <span class="setting" id="My Drive - Google Drive" onload="this.checked = localStorage.getItem('tabCloak') == this.id;" onclick="checked = 1; tabCloak(this.id);">Drive</span>
+                            <span class="setting" id="Google Docs" onload="this.checked = localStorage.getItem('tabCloak') == this.id;" onclick="checked = 1; tabCloak(this.id);">Docs</span>
+                            <span class="setting" id="Classes" onload="this.checked = localStorage.getItem('tabCloak') == this.id;" onclick="checked = 1; tabCloak(this.id);">Classroom</span>
+                        </div>
+                        <h2 class="section-title">Customization</h2>
+                        <div class="section">
+                            <span class="setting" onload="this.checked = localStorage.getItem('thumbnailHide');" onclick="checked = this.querySelector('input').checked ^= 1; thumbnailHide(checked);">
+                                Hide thumbnails
+                                <label class="switch">
+                                    <input type="checkbox"></input>
+                                    <span class="slider"></span>
+                                </label>
+                            </span>
+                        </div>
+                </div>
+                <div class="divContent" id="detailsContent"></div>
+            </div>
+            <div hidden class="details" id="message"></div>
+        </div>
+        </div>
+    </body>
+</html>
