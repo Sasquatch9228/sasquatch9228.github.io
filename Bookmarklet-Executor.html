@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bookmarklet Executor - Chrome OS Exploits</title>
+        <meta name="viewport" content="width=device-width, initial-scale=2.0">
+        <link rel="icon" href="../../assets/icon.png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans">
+        <link rel="stylesheet" href="../../main.css">
+        <link rel="stylesheet" href="../detail.css">
+        <script src="../addheader.js"></script>
+        <script src="assets/linkIP.js"></script>
+        <script>
+            window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+            ga('create', 'UA-XXXXX-Y', 'auto');
+            ga('send', 'pageview');
+        </script>
+    <meta name="google-site-verification" content="weY0_IfasLpB3jj53TSPZIfHSBY2obh-2hIuFTVIrhw" /></head>
+    <body>
+        <div id="main-content">
+            <h3>
+                <span class="title">Bookmarklet Executor</span>
+                <br>
+                <small>Ashton Davies</small>
+                <p>
+                <a href="https://github.com/AshtonDavies/bookmarklet-executor" target="_blank">
+                    <svg width="16" viewBox="0 0 16 16">
+                        <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+                    </svg>
+                    GitHub
+                </a>
+            </h3>
+            <center>
+                <input readonly class="copy" value="94.140.14.49" title="Copy to clipboard" onclick="navigator.clipboard.writeText(this.value);"></input>
+                <p>
+                <button class="bookmarkletexecutorBtn" onclick="linkIP();">Link IP Address</button>
+                <p style="font-size: 10px;">
+                (Linking an IP address disconnects the currently connected one)
+            </center>
+            <ol>
+                <h3>How to connect</h3>
+                <li>Navigate to the configuration page for your network.</li>
+                <li>In the "<em>Network</em>" dropdown, select "<em>Custom name servers</em>."</li>
+                <li>Set the first input field to the DNS address.</li>
+                <li>Refresh your network connection.</li>
+            </ol>
+            <ol>
+                <h3>How to use on any page with the side panel</h3>
+                This feature is theoretical and it is not available at this time. It requires a manually-hosted web server or a hosting service compatible with DNS spoofing. The page directory should also match that of an online page that can be accessed from the side panel such as Google Lens. To access Google Lens in the side panel, open the context menu and select "Search images with Google." Bookmarklets can supposedly be executed by clicking a link in the side panel, however, it may be blocked by Chrome itself.
+            </ol>
+            <ol>
+                <h3>How to use on the Chrome Web Store</h3>
+                <li>Navigate to <a href="https://tiny.cc/bookmarkletexec" target="_blank">tiny.cc/bookmarkletexec</a>.</li>
+                <li>If you are visiting that page for the first time, a Kproxy error message may appear. If that screen shows, click the "<em>OK</em>" button.</li>
+                <li>If you followed the previous step, after the page redirects to the Kproxy home page, Navigate to <a href="https://tiny.cc/bookmarkletexec" target="_blank">tiny.cc/bookmarkletexec</a> again.</li>
+            </ol>
+            <ol>
+                <h3>DNS Information</h3>
+                <table>
+                    <tr>
+                        <td>Provider</td>
+                        <td>AdGuard Free Plan</td>
+                    </tr>
+                    <tr>
+                        <td>Request TTL</td>
+                        <td>2000 seconds</td>
+                    </tr>
+                    <tr>
+                        <td>Request Limit</td>
+                        <td>300K/Month</td>
+                    </tr>
+                </table>
+            </ol>
+            <u>Please support this DNS by contributing a deployment to execute on other sites with the side panel!</u> <a href="mailto:ashtondavies292@gmail.com?subject=Support%20the%20Bookmarklet%20Generator%20DNS&body=I%20would%20like%20to%20support%20your%20DNS%20server.%0A%0AHere%20is%20my%20local%20IPv4%20website%20address%3A%20000.000.00.00">Contact</a>
+        </div>
+    </body>
+</html>
