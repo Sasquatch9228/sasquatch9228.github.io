@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Snap&Run - Chrome OS Exploits</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="../../assets/icon.png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans">
+        <link rel="stylesheet" href="../../main.css">
+        <link rel="stylesheet" href="../detail.css">
+        <script src="../addheader.js"></script>
+        <script>
+            window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+            ga('create', 'UA-XXXXX-Y', 'auto');
+            ga('send', 'pageview');
+        </script>
+    <meta name="google-site-verification" content="weY0_IfasLpB3jj53TSPZIfHSBY2obh-2hIuFTVIrhw" /></head>
+    <body>
+        <div id="main-content">
+            <h3>
+                <image height="20px" src="assets/icon.png"></image>
+                <span class="title">Snap&Run</span>
+                <br>
+                <small>Ashton Davies</small>
+            </h3>
+            <div class="note">Extension <a href="https://chromewebstore.google.com/detail/snapread/mloajfnmjckfjbeeofcdaecbelnblden" target="_blank">Snap&Read</a> must be installed to perform this exploit.</div>
+            <p>
+            Executing scripts with the "Snap&Read" extension.
+            <h3>Setup</h3>
+            The extension needs to be signed in to an active Snap&Read account before you begin.
+            <ol>
+                <h3>Instructions</h3>
+                <details>
+                    <summary>Enable the Snap&Read toolbar</summary>
+                    <li>Open the Snap&Read popup by activating the extension.</li>
+                    <li>In the extension popup, enable the Snap&Read service by toggling the <b>Snap&Read</b> switch on.</li>
+                </details>
+                <p>
+                <li>In the Snap&Read toolbar, click the <strong>Show outlines</strong> <image height="16px" src="assets/toolbarExpand.svg"></image> button.</li>
+                <li>In the Snap&Read outlines panel, click the <strong>New outline</strong> (+) button at the top left.</li>
+                <li>Enter any text into the outline topic's editable text area.</li>
+                <li>Click the bullet point of the topic.</li>
+                <li>Click the <strong>Link to source</strong> <image height="16px" src="assets/linkSource.svg"></image> option.</li>
+                <li>Click the plus (+) button at the bottom right.</li>
+                <li>Click and switch to the <strong>WEBSITE</strong> tab.</li>
+                <li>In the <strong>Article/Page title</strong> input field, enter the name of your chosen bookmarklet.</li>
+                <li>In the <strong>URL</strong> input field, enter the source of the bookmarklet, starting with <code>javascript:</code>.<p><b>Important:</b> You may need to substitute <a href="https://w3schools.com/tags/ref_urlencode.ASP" target="_blank">escape characters</a> for advanced bookmarklets.</li>
+                <li>Click <strong>SAVE</strong> at the top right.</li>
+                <li>Click and switch to the <strong>OUTLINE</strong> tab.</li>
+                <li>In the Snap&Read toolbar, click the <strong>Hide outlines</strong> <image height="16px" src="assets/toolbarCollapse.svg"></image> button.</li>
+            </ol>
+            <h3>Script Execution</h3>
+            <ol>
+                <h3>Instructions</h3>
+                <em>Follow on a page of your choice.</em>
+                <li>In the Snap&Read toolbar, click the <strong>Show outlines</strong> <image height="16px" src="assets/toolbarExpand.svg"></image> button.</li>
+                <li>In your created outline, click the link separated by parentheses that contains the bookmarklet.</li>
+                <li>In the Snap&Read toolbar, click the <strong>Hide outlines</strong> <image height="16px" src="assets/toolbarCollapse.svg"></image> button.</li>
+                <p>
+                <details>
+                    <summary>Disable the Snap&Read toolbar</summary>
+                    <li>Open the Snap&Read popup by activating the extension.</li>
+                    <li>In the extension popup, disable the Snap&Read service by toggling the <b>Snap&Read</b> switch off.</li>
+                </details>
+            </ol>
+        </div>
+    </body>
+</html>
