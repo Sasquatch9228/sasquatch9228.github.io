@@ -94,14 +94,14 @@
         You only need to do this once, and it will let you use the SH1MMER exploit even after it's been completely patched.
         <ol>
             <li>Unplug everything, open the back panel, disconnect the battery to disable WP, plug in the charger</li>
-            <li>Boot into SH1MMER and use "Un-Enroll / Deprovision" (yes it will show an error, but that doesn't matter)<p>(you will also need to run "Disable block_devmode" if you're using the old legacy version)</li>
-            <li>Go to the bash shell and run this command:<p>/usr/share/vboot/bin/set_gbb_flags.sh 0x8090<p>Do not use "<em>Reset GBB Flags</em>" after this.</li>
+            <li>Boot into SH1MMER and use "Un-Enroll / Deprovision" (yes it will show an error, but that doesn't matter)<p>(you will also need to run "<code>Disable block_devmode</code>" if you're using the old legacy version)</li>
+            <li>Go to the bash shell and run this command:<code>/usr/share/vboot/bin/set_gbb_flags.sh 0x8090</code>Do not use "<code>Reset GBB Flags</code>" after this.</li>
             <li>Exit SH1MMER, unplug everything, reconnect the battery, and reconnect the charger.</li>
             <li>Boot up and press Ctrl+D to enter developer mode.</li>
             <li>When completed, use Ctrl+ALT+SHIFT+R to powerwash</li>
-            <li>After powerwashing, immediately enter VT2 with Ctrl+Alt+F2 (→), login as "root" and run these commands:<p>tpm_manager_client take_ownership<p>cryptohome --action=remove_firmware_management_parameters<p>If it fails, try downgrading to v110 if possible. If you can't, use E-Halcyon instead.<li>Press Ctrl+Alt+F1 (←), and use Ctrl+Alt+Shift+R to powerwash again.</li>
+            <li>After powerwashing, immediately enter VT2 with Ctrl+Alt+F2 (→), login as "<code>root</code>" and run these commands:<code>tpm_manager_client take_ownership<p>cryptohome --action=remove_firmware_management_parameters</code>If it fails, try downgrading to v110 if possible. If you can't, use E-Halcyon instead.<li>Press Ctrl+Alt+F1 (←), and use Ctrl+Alt+Shift+R to powerwash the Chromebook again.</li>
         </ol>
-        <b>NOTE:</b> If you have a dedede board, your WP method is probably different. Look your model up online to find the WP method.
+        <b>NOTE:</b> If you have a <code>dedede</code> board, your WP method is probably different. Look your model up online to find the WP method.
         <h3>What now?</h3>
         You will now be able to, among other things, unenroll your Chromebook. It will now behave entirely as if it is a personal computer and no longer contain spyware or blocker extensions. After you do this and get past the "determining device configuration" screen, you will be able to actually turn developer mode on.
         <p>
@@ -111,7 +111,7 @@
         <p>
         There are many methods to get a school Wi-Fi password while enrolled, including the policy netlog trick. While on a school account and unenrolled, you can bypass Wi-Fi blocks by using a secure DNS such as Cloudflare 1.1.1.1 from <u>chrome://os-settings/osPrivacy</u>. It is also recommended to enable "<em>MAC Address Randomization</em>" in <u>chrome://flags</u> to stay hidden.
         <p>
-        To take a kiosk exam, the safest option is to re-enroll temporarily. Instructions for doing that are hosted at <a href="https://sh1mmer.me/kiosks.txt" target="_blank">kiosks.txt</a>. Saving a copy of this file for future reference is probably a smart move.
+        To take a kiosk exam, the safest option is to re-enroll temporarily. Instructions for doing that are hosted at <a href="https://sh1mmer.me/kiosks.txt" target="_blank">kiosks.txt</a>. Saving a copy of this text file for future reference is probably a smart move to do.
         <p>
         You can also use <a href="https://github.com/MercuryWorkshop/fakemurk">fakemurk</a> as a way to enroll your device but stay in developer mode and have control over policies and extensions. You may need to use this to get Wi-Fi passwords if <u>chrome://net-export</u> is blocked.
         </div>
