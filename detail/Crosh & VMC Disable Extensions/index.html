@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Crosh & VMC Disable Extensions - Chrome OS Exploits</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="../../assets/icon.png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans">
+        <link rel="stylesheet" href="../../main.css">
+        <link rel="stylesheet" href="../detail.css">
+        <script src="../addheader.js"></script>
+        <script>
+            window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+            ga('create', 'UA-XXXXX-Y', 'auto');
+            ga('send', 'pageview');
+        </script>
+    <meta name="google-site-verification" content="weY0_IfasLpB3jj53TSPZIfHSBY2obh-2hIuFTVIrhw" /></head>
+    <body>
+        <div id="main-content">
+            <h3>
+                <image height="20px" src="assets/icon.png"></image>
+                <span class="title">Crosh & VMC Disable Extensions</span>
+                <br>
+                <small>ading2210 (vk6#7391)</small>
+                <p>
+                <a href="https://local.ading.dev/vmc.html" target="_blank">
+                    <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-link flex-shrink-0 mr-2">
+                        <path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path>
+                    </svg>
+                    Website
+                </a>
+                <a href="https://discord.com/channels/419123358698045453/1099182867784941608" target="_blank">
+                    <svg style="color: rgb(0, 0, 0);" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-discord" viewBox="0 0 16 16">
+                        <path d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z" fill="#000000"></path>
+                    </svg>
+                    Discord
+                </a>
+            </h3>
+            <div class="note">The Crosh terminal must not be blocked by your administrator in order to perform this exploit. The <code>VmManagementCliAllowed</code> policy must also be enabled.</div>
+            <p>
+            <ol>
+                <h3>Instructions</h3>
+                <li><a href="https://chromium.googlesource.com/chromiumos/docs/+/master/developer_mode.md#dev-mode" target="_blank">Powerwash the Chromebook by attempting to enable Developer Mode</a>. You may want to back up important local data on your account profile before performing this step of the exploit.</li>
+                <li>Sign back in to the Chromebook.</li>
+                <li>Disconnect from your internet network immediately to prevent the extensions from installing automatically.</li>
+                <details>
+                    <summary><u>To disable all extensions</u></summary>
+                    <li>Open the Crosh terminal. This can be done by pressing <code>Ctrl+Alt+T</code>.</li>
+                    <li>Run <code>vmc create-extra-disk --size 1 /home/chronos/user/Extensions</code> in the crosh window. If it fails with a "file exists" error, use the method to disable specific extensions below.</li>
+                </details>
+                <details>
+                    <summary><u>To disable specific extensions</u></summary>
+                    <li>Navigate to <u>chrome://extensions</u>.</li>
+                    <li>Connect to your internet network.</li>
+                    <li>When an extension is installed automatically, immediately disconnect from your internet network. If you want that extension to be enabled while other extensions are disabled, restart these instructions to try this step again.</li>
+                    <li>Open the Crosh terminal. This can be done by pressing <code>Ctrl+Alt+T</code>.</li>
+                    <li>For each extension you want to disable, run <code>vmc create-extra-disk --size 1 /home/chronos/user/Extensions/{extension_id}</code>, replacing "{extension_id}" with the extension ID.</li>
+                </details>
+                <li>Connect back to your internet network. The extensions should not install automatically by themselves.</li>
+            </ol>
+        </div>
+    </body>
+</html>
