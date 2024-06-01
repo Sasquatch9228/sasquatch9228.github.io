@@ -49,7 +49,7 @@
         <h3>Writing to USB</h3>
         First, you'll need to find your managed Chromebook's board name. This can be done by going to <u>chrome://version</u> on your Chromebook and copying the word after stable-channel, or with a variety of other methods.
         <p>
-        Alternate Method: Press <u>Esc + Refresh + Power<u> to enter Recovery Mode, and look up your codename on https://cros.tech/. Click your device, and your board name will be shown. Note that GRABBITER is the same as FLEEX (which is octopus) but is not shown on most online databases.
+        Alternate Method: Press <u>Esc + Refresh + Power</u> to enter Recovery Mode, and look up your codename on https://cros.tech/. Click your device, and your board name will be shown. Note that GRABBITER is the same as FLEEX (which is octopus) but is not shown on most online databases.
         <p>
         If your board name is in the list below, your board has a publicly leaked RMA shim. If it's not, you'll have to source it on your own.
         <p>
@@ -99,19 +99,19 @@
             <li>Exit SH1MMER, unplug everything, reconnect the battery, and reconnect the charger.</li>
             <li>Boot up and press Ctrl+D to enter developer mode.</li>
             <li>When completed, use Ctrl+ALT+SHIFT+R to powerwash</li>
-            <li>After powerwashing, immediately enter VT2 with Ctrl+Alt+F2 (→), login as "<code>root</code>" and run these commands:<code>tpm_manager_client take_ownership<p>cryptohome --action=remove_firmware_management_parameters</code>If it fails, try downgrading to v110 if possible. If you can't, use E-Halcyon instead.<li>Press Ctrl+Alt+F1 (←), and use Ctrl+Alt+Shift+R to powerwash the Chromebook again.</li>
+            <li>After powerwashing, immediately enter VT2 with Ctrl+Alt+F2 (→), login as "<code>root</code>" and run these commands:<code>tpm_manager_client take_ownership<p>cryptohome --action=remove_firmware_management_parameters</code>If it fails, try downgrading to version 110 if possible. If you cannot do so, use E-Halcyon instead.<li>Press Ctrl+Alt+F1 (←), and use Ctrl+Alt+Shift+R to powerwash the Chromebook again.</li>
         </ol>
         <b>NOTE:</b> If you have a <code>dedede</code> board, your WP method is probably different. Look your model up online to find the WP method.
         <h3>What now?</h3>
         You will now be able to, among other things, unenroll your Chromebook. It will now behave entirely as if it is a personal computer and no longer contain spyware or blocker extensions. After you do this and get past the "determining device configuration" screen, you will be able to actually turn developer mode on.
         <p>
-        Note that while unenrolled, it is recommended to add your personal account first, then add your school account, then switch between the two as needed. Mercury Workshop does not condone the use of SH1MMER or unenrolling to cheat in school.
+        Note that while unenrolled, it is recommended to add your personal account first, then add your school account, then switch between the two accounts as needed. Mercury Workshop does not condone the use of SH1MMER or unenrolling to cheat or plagiarize in school.
         <p>
-        The biggest challenges with unenrolling are connecting to the school network and taking state or national exams (since there are no kiosk apps anymore).
+        The biggest challenges with unenrolling are connecting to the school network and taking state or national exams (since there are no kiosk applications anymore).
         <p>
-        There are many methods to get a school Wi-Fi password while enrolled, including the policy netlog trick. While on a school account and unenrolled, you can bypass Wi-Fi blocks by using a secure DNS such as Cloudflare 1.1.1.1 from <u>chrome://os-settings/osPrivacy</u>. It is also recommended to enable "<em>MAC Address Randomization</em>" in <u>chrome://flags</u> to stay hidden.
+        There are many methods to get a school Wi-Fi password while enrolled, including the policy netlog trick found by Luphoria. While on a school account and unenrolled, you can bypass Wi-Fi blocks by using a secure DNS such as Cloudflare 1.1.1.1 from <u>chrome://os-settings/osPrivacy</u>. It is also recommended to enable "<em>MAC Address Randomization</em>" in <u>chrome://flags</u> to stay hidden.
         <p>
-        To take a kiosk exam, the safest option is to re-enroll temporarily. Instructions for doing that are hosted at <a href="https://sh1mmer.me/kiosks.txt" target="_blank">kiosks.txt</a>. Saving a copy of this text file for future reference is probably a smart move to do.
+        To take a kiosk exam, the safest option is to re-enroll back temporarily. Instructions for doing that are hosted at <a href="https://sh1mmer.me/kiosks.txt" target="_blank">kiosks.txt</a>. Saving a copy of this text file for future reference is probably a smart move to do.
         <p>
         You can also use <a href="https://github.com/MercuryWorkshop/fakemurk">fakemurk</a> as a way to enroll your device but stay in developer mode and have control over policies and extensions. You may need to use this to get Wi-Fi passwords if <u>chrome://net-export</u> is blocked.
         </div>
