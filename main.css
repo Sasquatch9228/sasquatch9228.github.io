@@ -213,9 +213,11 @@ summary::marker {
 }
 code {
     display: inline-block;
+    max-width: calc(100% - 20px);
     padding: 0px 5px;
     background-color: rgba(110, 118, 129, 0.4);
     border-radius: 5px;
+    overflow: auto;
 }
 textarea {
     width: 630px;
