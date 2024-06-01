@@ -169,15 +169,24 @@ img {
 .ingotBtn:active {
     background-color: rgba(138, 180, 248, 0.25);
 }
+.lomohBtn {
+    display: inline-block;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    color: black;
+    background-color: lightgray;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
 .ltmeatBtn {
     padding: 5px 10px;
     color: white;
     background-color: #df68bf;
     font-size: medium;
     text-decoration: none;
-}
-.ltmeatBtn:hover {
-    filter: brightness(85%);
 }
 .ltmeatfloodBtn {
     display: inline-block;
@@ -277,16 +286,6 @@ img {
 .bookmarkletexecutorBtn:hover {
     filter: brightness(85%);
 }
-.incognitoDiv {
-    width: 400px;
-    max-width: 100%;
-    margin: auto;
-    padding: 20px;
-    color: white;
-    background-color: black;
-    border: 2px solid red;
-    font-family: "Arial", sans-serif;
-}
 .quickviewBtn {
     display: inline-block;
     padding: 10px;
@@ -314,6 +313,16 @@ img {
 }
 .buypassBtn:hover {
     background-color: #93ffa9;
+}
+.incognitoDiv {
+    width: 400px;
+    max-width: 100%;
+    margin: auto;
+    padding: 20px;
+    color: white;
+    background-color: black;
+    border: 2px solid red;
+    font-family: "Arial", sans-serif;
 }
 input.nameServerInput {
     margin: 5px;
