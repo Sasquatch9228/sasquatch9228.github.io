@@ -1,56 +1,44 @@
 @media (prefers-color-scheme: light) {
     :root {
-        --backgroundColor: white;
-        --foregroundColor: black;
-        --accentColor: #eff2ef;
-        --linkColor: initial;
-        --headerColor: rgba(255, 255, 255, 0.8);
+        --backgroundColor: white !important;
+        --foregroundColor: black !important;
+        --accentColor: #eff2ef !important;
+        --linkColor: dodgerblue !important;
+        --linkVisitedColor: #673ab7 !important;
+        --headerColor: rgba(255, 255, 255, 0.8) !important;
+        --tabCurrentColor: #0b57d0;
     }
-    header {
-        color: #5c5f5e;
+    #bg-container {
+        background-image: none !important;
+    }
+    .tab {
+        color: #5c5f5e !important;
+    }
+    svg {
+        filter: none !important;
     }
     .tab:hover {
         filter: brightness(0);
+        text-shadow: none !important;
     }
     .optionButton {
-        background-color: rgba(239, 242, 239, 0.8);
+        background-color: rgba(239, 242, 239, 0.8) !important;
     }
     .optionButton:hover {
-        backdrop-filter: brightness(0.5);
+        backdrop-filter: brightness(0.5) !important;
     }
     .thumbnail {
-        background-color: lightgray;
+        background-color: lightgray !important;
     }
 }
-@media (prefers-color-scheme: dark) {
-    :root {
-        --backgroundColor: #202124;
-        --foregroundColor: white;
-        --accentColor: #292a2d;
-        --linkColor: #a8c7fa;
-        --headerColor: rgba(32, 33, 36, 0.85);
-    }
-    #bg-container {
-        background-image: url("assets/darkBG.jpg");
-    }
-    svg {
-        filter: invert();
-    }
-    .tab:hover {
-        text-shadow: 0px 0px 5px white;
-    }    
-    .optionButton {
-        background-color: rgba(0, 0, 0, 0.8);
-    }
-    .optionButton:hover {
-        background-color: #292a2d;
-    }
-    .thumbnail {
-        background-color: var(--accentColor);
-    }
-    .nocolor {
-        filter: invert();
-    }
+:root {
+    --backgroundColor: #202124;
+    --foregroundColor: white;
+    --accentColor: #292a2d;
+    --linkColor: #a8c7fa;
+    --linkVisitedColor: #b39ddb !important;
+    --headerColor: rgba(32, 33, 36, 0.85);
+    --tabCurrentColor: #a8c7fa;
 }
 body {
     margin: 0px;
@@ -67,15 +55,29 @@ body {
     position: fixed;
     left: 0px;
     top: 0px;
+    background-image: url("assets/darkBG.jpg");
     background-size: cover;
     filter: brightness(0.8);
 }
-#main-content {
+#main-content, #blog-content {
+    margin: auto;
     max-width: 1100px;
     padding: 10px 20px;
     position: relative;
-    left: 50%;
-    translate: -50%;
+}
+#blog-content {
+    max-width: 800px;
+    border: 1px solid var(--accentColor);
+    background-color: var(--accentColor);
+    font-size: large;
+    line-height: 1.6;
+}
+#blog-content small {
+    filter: opacity(0.8);
+    font-size: x-small;
+}
+#blog-content h1, #blog-content h2, #blog-content h3 {
+    text-align: left;
 }
 header {
     display: flex;
@@ -88,15 +90,15 @@ header {
     z-index: 1;
     transition: all 100ms;
 }
-h2 {
-    padding-bottom: 5px;
-}
 ol h3 {
     margin-right: 40px;
 }
 a {
     display: inline-block;
     color: var(--linkColor);
+}
+a:visited {
+    color: var(--linkVisitedColor);
 }
 a:hover {
     text-decoration: none;
@@ -112,23 +114,25 @@ a:active {
     mask-repeat: no-repeat;
 }
 h3 a {
-    display: inline-block;
-    padding: 4px 4px;
-    margin-left: 2px;
-    margin-right: 2px;
-    color: var(--foregroundColor);
+    display: inline-flex;
+    padding: 5px;
+    margin: 5px 2px;
+    color: var(--foregroundColor) !important;
     border: 1px solid var(--foregroundColor) !important;
-    border-radius: 5px;
+    border-radius: 3px;
     font-size: small;
     text-decoration: none;
+    vertical-align: middle;
     user-select: none;
 }
 h3 a::after {
     content: "" !important;
 }
+a svg {
+    margin-right: 5px;
+}
 h3 img {
     object-fit: contain;
-    margin-right: 3px;
     width: 60px;
     height: 60px;
     border-radius: 10px;
@@ -137,8 +141,8 @@ h3 img {
 .details img {
     max-width: 95%;
 }
-a svg {
-    transform: translateY(2px);
+svg, .nocolor {
+    filter: invert();
 }
 ol {
     padding-top: 10px;
@@ -264,21 +268,29 @@ a.logo img {
     height: min-content;
     min-width: auto;
     padding: 0px 16px;
-    color: unset;
+    color: var(--foregroundColor) !important;
     font-size: 14px;
-    font-weight: bold;
+    font-weight: lighter;
     text-decoration: none;
     line-height: 55px;
     text-align: center;
     align-content: baseline;
     transition: filter 200ms, text-shadow 200ms;
 }
+.tab:hover {
+    text-shadow: 0px 0px 5px white;
+}
 .tab:active {
-    filter: brightness(0.5);
+    filter: brightness(0.85);
 }
 .tab-current {
-    color: #0b57d0;
-    border-bottom: 3px solid #0b57d0;
+    color: var(--tabCurrentColor) !important;
+    border-bottom: 3px solid var(--tabCurrentColor);
+    font-weight: bold;
+    text-shadow: none;
+}
+.tab-current:hover {
+    filter: none;
     text-shadow: none;
 }
 .section-title {
@@ -435,6 +447,7 @@ input:checked + .slider:before {
     padding: 15px 15px;
     overflow: hidden;
     color: var(--foregroundColor);
+    background-color: rgba(0, 0, 0, 0.8);
     border: 3px solid;
     border-radius: 20px;
     font-size: smaller;
@@ -442,6 +455,7 @@ input:checked + .slider:before {
     animation: grow 1s both;
 }
 .optionButton:hover {
+    background-color: #292a2d;
     cursor: pointer;
 }
 .optionButton:active {
@@ -457,6 +471,7 @@ input:checked + .slider:before {
 .thumbnail {
     width: 100%;
     height: 140px;
+    background-color: var(--accentColor);
     background-image: url("assets/thumbnail-empty.png");
     background-position: center;
     background-size: cover;
@@ -502,8 +517,9 @@ input:checked + .slider:before {
     justify-content: center;
 }
 .divContent {
-    height: calc(100% - 80px);
+    height: calc(100% - 50px);
     margin: 10px;
+    padding: 10px;
     overflow: hidden auto;
     background-color: var(--backgroundColor);
     border-radius: 10px;
@@ -552,6 +568,14 @@ input:checked + .slider:before {
 }
 .continue:active {
     filter: brightness(90%);
+}
+.page-btn {
+    width: 15px;
+    height: 15px;
+    background: url("assets/refresh-page.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: none;
 }
 .discord-invite {
     display: inline-flex;
