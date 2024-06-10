@@ -6,7 +6,7 @@
         --linkColor: dodgerblue !important;
         --linkVisitedColor: #673ab7 !important;
         --headerColor: rgba(255, 255, 255, 0.8) !important;
-        --tabCurrentColor: #0b57d0;
+        --tabCurrentColor: #0b57d0 !important;
     }
     #bg-container {
         background-image: none !important;
@@ -36,7 +36,7 @@
     --foregroundColor: white;
     --accentColor: #292a2d;
     --linkColor: #a8c7fa;
-    --linkVisitedColor: #b39ddb !important;
+    --linkVisitedColor: #b39ddb;
     --headerColor: rgba(32, 33, 36, 0.85);
     --tabCurrentColor: #a8c7fa;
 }
