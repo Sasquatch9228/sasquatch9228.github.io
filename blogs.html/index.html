@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>The Story Behind LoMoH</title>
+        <title>Blog Archive - EXTENSION-REMOVER</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="google-site-verification" content="GO1Hg4RaaWS5e6glGz85VfK_r_UflKBPw8aXRIG22WA" />
-        <link rel="icon" href="../../assets/icon.png">
+        <link rel="icon" href="assets/icon.png">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans">
-        <link rel="stylesheet" href="../../main.css">
-        <link rel="stylesheet" href="../../detail/detail.css">
-        <script src="../../detail/addheader.js"></script>
+        <link rel="stylesheet" href="main.css">
+        <script src="detail/addheader.js"></script>
+        <script>
+            window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+            ga('create', 'UA-XXXXX-Y', 'auto');
+            ga('send', 'pageview');
+        </script>
+        <script async src='https://www.google-analytics.com/analytics.js'></script>
+        <script async src="main.js"></script>
         <script>
             window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
             ga('create', 'UA-XXXXX-Y', 'auto');
@@ -17,39 +23,24 @@
         </script>
     </head>
     <body>
-        <div id="blog-content">
-            <h1>The Story Behind LoMoH</h1>
-            <h2>by Ashton Davies</h2>
-            <image width="100%" height="200px" style="object-fit: cover;" src="images/head-photo.jpg">
-                <br>
-                <small>
-                    <em>Chromebook displaying LoMoH exploit thumbnail</em>
-                </small>
-            </image>
-            <p>
-            The discovery of the LoMoH (<b>Lo</b>cked <b>Mo</b>de <b>H</b>ack) exploit began in 2019. This was at the beginning of the COVID-19 pandemic, as teachers were beginning to remotely give their classes quizzes in Google Forms with the locked mode feature that was recently introduced to prevent students from cheating on quizzes. To me, it was a fascinating feature, and seeing that a website such as Google Forms was able to lock itself down when the user clicks a button was a unique feature for Chrome OS. I mean, the Chrome Web Store has always had the special management permission so it can handle extensions, but Google Forms had become another privileged website.
-            <p>
-            I spent time fiddling with the feature, curious of how it worked and if any page was able to activate it. Luckily, there was no barrier to enabling locked mode from a student account, so I was able to experiment at ease without notifying anyone. One thing that stood out to me is that the extensions that were installed had no access to the quiz while it was in locked mode. They still showed in the unusable context menu, but the fact that they did not work on the quiz page had somewhat already given it away. All I had to do is spend a while trying to navigate to Google Search (worked at the time) to visit a normally blocked website, and surely enough, it was successful.
-            <p>
-            But that was not the only vulnerability in the locked mode feature. Days passed, and I decided to experiment further by developing a bookmarklet that simply counted down a few seconds and then closed the tab while I would timely click the button to start the quiz. If timed right, that would lead to tricking Chrome OS that the quiz was running although the window was closed, allowing the user to browse freely with extensions disabled. The only downsides were that screenshots were disabled and extensions that updated would be re-enabled, but neither were major issues.
-            <p>
-            I was shocked when it was successful. I had just discovered the first exploit that could disable extensions that were force-installed by the administrator, something I hadn't known was possible at the time. It did not spread around much for a while, and I had not shared it online.
-            <p>
-            Not much changed about the exploit for a couple of years as I shared it with a few friends who were in my school district. During my freshman year of high school, the first full school year in person, I noticed the exploit was still working, and I started to continue trying to improve the bookmarklet as I was more familiar with JavaScript on the web. Using a timer is not the best way to handle that type of task, so I changed the bookmarklet to close the window when the page was clicked. Later on, I realized it could get more specific by adding an event listener to the button, and after doing that and some other tweaks, the bookmarklet was complete.
-            <p>
-            Some other day soon afterward, my friend was looking for a method to disable Hapara Highlights, which was an exception for locked mode as well as the Snap&Read extension. He informed me of a different bookmarklet that could disable extensions, and it was the LTBEEF exploit. It utilized a vulnerability I had thought about before, because I knew that the Chrome Web Store was able to re-enable extensions that were disabled, which I used to my advantage to re-enable useful ones that were force-installed and disabled with this exploit, but I didn't know how to find the function that it ran to disable them, and I assumed that Google was smarter than that. Never assume that Google has already considered a potential vulnerability, because that is often not the case.
-            <p>
-            LTBEEF was revolutionary for bypassing extensions set by administrators. It was so simple, too simple. Students used it at school whether or not they genuinely cared about bypassing extensions. It became a problem that was distracting students, so Google had to patch it in Chrome OS 106 and later versions of 102. I was fond of it too, although it had to go. My locked mode exploit still worked, but districts were blocking bookmarklets and I needed to do something to keep it working.
-            <p>
-            I began to code an HTML version and discovered that a bookmarklet wasn't really necessary to produce the effect. It had a button to open the quiz start page and it also had a button to start a timer. It couldn't add an event listener to any elements in the window, because that's cross site scripting (XSS), which is blocked by most browsers, but a timer was fine as long as the exploit still worked. The page was deployed to Google Apps Script, and later moved to GitHub.
-            <p>
-            My friends were enjoying my new website, and I was happy to have my exploit working again. But more students were using the website at my school. They wanted a new way to bypass filters. The source of the spreading seemed to be one particular person for all I know, and traffic on the website was increasing with more visitors. I was happy as usual to be making others happy with the exploit, but it was getting noticed by my school district. They wanted to stop it, so they blocked the URL string "locked-mode-hack," which was the repository name on GitHub that is also part of the URL.
-            <p>
-            This was quite frustrating. The exploit had just been found by my school district and reported to Google, which is something I possibly could have avoided if I had known it was that easy to make a site too popular. After renaming the GitHub repository to "LoMoH," giving the exploit a better title, people were able to continue using the website if they talked to me about the change. And so it continued with extra caution as I thought I had gotten away with keeping LoMoH usable after my school district failed to recognize what they had just tried to block as one of their own students' projects rather than just a popular find.
-            <p>
-            When the patch came around, disappointment grew, but fate didn't happen that easily. This is because many Chromebooks were running Chrome OS 108 at the time, which, for many Chromebooks in various organizations, had a strange update behavior in which it stuck for a very long time until administrators took manual action. This was the time period when LoMoH didn't decay in users, because I finally shared it with people on the Internet who had not reached the patch on their Chromebooks yet.
-            <p>
-            Although it didn't get much fame in the community during its lifetime compared to LTBEEF, which is said to have piled Bypassi#7037 in Discord DMs overnight, I really did discover the first exploit that could disable extensions that were force-installed, because I decided to tamper with the Locked Mode Feature rather than assume that Google had taken a smarter approach.
+        <div id="main-content">
+            <h1>Blog Archive</h1>
+            <a style="text-decoration: none;" href="blog/The Story Behind LoMoH/index.html">
+                <div class="optionButton">
+                    <div class="thumbnail" style="background-image: url('blog/The Story Behind LoMoH/images/head-photo.jpg');"></div>
+                    <h3>
+                        <span class="title">The Story Behind LoMoH</span>
+                    </h3>
+                </div>
+            </a>
+            <a style="text-decoration: none;" href="detail/QuickView/archive/blog/ading2210/quickview.html">
+                <div class="optionButton">
+                    <div class="thumbnail" style="background-image: url('detail/QuickView/assets/quickoffice_screenshot.png');"></div>
+                    <h3>
+                        <span class="title">Adventures in Point-Blank: Exploiting QuickOffice on Chrome OS</span>
+                    </h3>
+                </div>
+            </a>
         </div>
     </body>
 </html>
