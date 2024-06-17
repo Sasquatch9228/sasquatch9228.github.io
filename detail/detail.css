@@ -74,6 +74,9 @@ img {
     border-left: none;
     border-right: none;
 }
+.integration {
+    background-color: var(--integrationColor);
+}
 .bookmarklet {
     display: table;
     margin: auto;
@@ -91,10 +94,12 @@ img {
 .bookmarklet:active {
     opacity: 0.5;
 }
-.search-google-link {
+.search-google-link, .github-forks-link {
     margin-right: 10px;
     padding: 10px;
-    color: black;
+}
+.search-google-link {
+    color: black !important;
     background-color: white;
     border-radius: 5px;
     text-decoration: none;
@@ -103,7 +108,7 @@ img {
     content: "" !important;
 }
 .github-forks-link {
-    color: white;
+    color: white !important;
     background-color: #24292F;
     border-radius: 5px;
     text-decoration: none;
@@ -183,7 +188,7 @@ img {
 }
 .ltmeatBtn {
     padding: 5px 10px;
-    color: white;
+    color: white !important;
     background-color: #df68bf;
     font-size: medium;
     text-decoration: none;
