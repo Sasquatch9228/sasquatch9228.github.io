@@ -65,8 +65,48 @@
             <h3>Instructions</h3>
             <li><a href="https://support.google.com/chromebook/answer/1080595#:~:text=Enter%20recovery%20mode" target="_blank">Enter into Recovery Mode</a> by holding ESC + Refresh + Power for 2 or 3 seconds. You should be on an "Insert Recovery Media" or "Let's step you through the recovery process" screen.</li>
             <li>Check your kernel version for compatibility by pressing TAB and looking at the last digit of the <code>kernver=</code> line. If the last number of the <code>kernver=</code> line is a <strong>0</strong>, <strong>1</strong>, or <strong>2</strong>, your Chromebook is supported and you can downgrade to ChromeOS version 119 or lower. Follow the instructions at the <a href='/detail/downgrade/' target='_blank'>Downgrade Versions</a> section.</li> If the last number of the <code>kernver=</code> line is a <strong>3</strong>, your Chromebook is not supported, and you cannot downgrade to ChromeOS version 119 or lower. Wait for a new unrenrollment exploit or do a <a href='/detail/Pencil%20Method/' target='_blank'>dangerous hardware modification</a> here.</li>
-            <li>Step 2</li>
-            <li>Step 3</li>
+            <li>On a personal device, download <a href="assets/stateful2.tar.xz" download>stateful.tar.xz</a>, and the Cryptsetup chroot <a href="assets/st.tar.xz" download>st.tar.xz</a>. For raw RMA shims, check the SH1MMER discord server. Keep all of these downloads ready before starting.</li>
+            <li>In the Linux terminal (or WSL) run the following command: <code>git clone https://github.com/FWSmasher/CryptoCrafter</code>.</li>
+            <li>Afterwards, run this command in your Linux terminal (WSL or real Linux or a virtual machine). <strong>IT MUST BE IN THE CLONED DIRECTORY</strong>: <code>./cryptosmite_host.sh <raw rma shim path> <cryptsetup chroot path> <stateful.tar.xz path></code>.</li>
+            <details>
+                <summary><u>Prepare the new RMA shim for flashing</u></summary>
+                <li>Open the <a href="https://chrome.google.com/webstore/detail/pocpnlppkickgojjlmhdmidojbmbodfm">Chromebook Recovery Utility extension</a>, and in the top right corner select "<strong>Use local image</strong>." The image should be the modified RMA shim. </li>
+                <li>Select the USB drive to flash.</li>
+            </details>
+            <details>
+                <summary><u>Boot the RMA shim</u></summary>
+                <li>You will first need to enter recovery mode by pressing ESC + Refresh + Power.</li>
+                <li>After entering recovery mode, enable developer mode by pressing Ctrl + D on the recovery mode screen.</li>
+                <li>Developer mode will be blocked by policy as shown in the top left corner of the screen.</li>
+                <li>Press ESC + Refresh + Power Button again, and then plug in the USB drive you have just flashed.</li>
+            </details>
+            <details>
+                <summary><u>Running the injected CryptoSmite file</u></summary>
+                <li>Run <code>cryptosmite.sh</code> in the injected RMA shim.</li>
+                <li>In the bash shell prompt in the edit stateful bash shell screen, run this command: <code>tar -xvf /mnt/shim_stateful/stateful.tar.xz -C /mnt/stateful exit</code>.</li>
+                <li>The system will now reboot into verified mode.</li>
+                <li>You should now press the OK button at the OOBE screen or add user screen.</li>
+                <li>Once you reach the add user screen, enable developer mode. If you do not reach the add user screen or if it gets stuck, make an issue on the <a href="https://github.com/FWSmasher/CryptoSmite" target="_blank">GitHub repository</a>.</li>
+            </details>
+            <p>
+            To enable developer mode, press ESC + Refresh + Power Button to enter recovery mode, and then press Ctrl + D to enable developer mode.
+            <p>
+            From here, there are two ways to proceed. You could stick around for the five-minute wait by pressing Ctrl + D, or skip the developer mode transition.
+            <p>
+            <details>
+                <summary><u>How to skip the 5 minute developer mode wait and transition</u></summary>
+                <li>Once you have reached the "<strong>developer mode is on</strong>" screen, press ESC + Refresh + Power and boot into an RMA shim.</li>
+                <li>Select the bash shell, and run the following commands (or add it as a bash script): <code>mkfs.ext4 /dev/mmcblk0p1 -F</code>, <code>mount -o loop,rw /dev/mmcblk0p1 /tmp</code>, <code>touch /tmp/.developer_mode</code>, <code>unmount /tmp && sync</code>, <code>Reboot</code>.</li>
+                <li>On "enrollment" branch shims, this script is already included within the new menu.</li>
+            </details>
+            <p>
+            After enabling developer mode using either of the two methods above, you need to boot into the operating system, and run these last two following commands in the VT2 shell (by pressing Ctrl + Alt + F2 and entering `<code>root</code>`, these commands will <strong>NOT</strong> run in a shim.)
+            <p>
+            Quickly after you boot, run these commands: <code>vpd -i RW_VPD -s check_enrollment=0</code>, <code>cryptohome --action=remove_firmware_management_parameters</code>.
+            <p>
+            If you do not get the timing right, powerwash the Chromebook and try again. If you got the timing and everything else correct, you are done! Enjoy doing whatever you want on that unenrolled Chromebook!
+            <p>
+            <strong>EXTRA NOTE:</strong> Here is the decryption password to decrypt <code>cryptosmite_sh1mmer</code> or the encrypted version of CryptoSmite with SH1MMER: <code>Info-58-immense!NickName_Arabia-710</code>. If you want prebuilt shims that automatically go into CryptoSmite, go visit <a href="dl.darkn.bio" target="_blank">dl.darkn.bio</a>.
         </ol>
         </div>
     </body>
