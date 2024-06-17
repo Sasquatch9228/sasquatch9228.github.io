@@ -8,4 +8,6 @@ To fix this just click the back button once next to the address bar if you want 
 
 I will probably fix this miniature little glitch soon, but not right now. Anyways, I hope you guys enjoy navigating through my very own first personal website!
 
+Oh, and if you guys need the E-Halcyon exploit that is not listed on the website, I rehosted the website on Vercel since the original domain [fog.gay](fog.gay) has expired and the instructions might be harder to find until I list the exploit on my website soon. Here is the link that I rehosted E-Halcyon on: [e-halcyon.vercel.app](e-halcyon.vercel.app)
+
 Copyright 2024 Matthew6229. All rights reserved.
