@@ -160,12 +160,9 @@ Open a (non-root) terminal/shell window, change to home directory</li>
                 <p>
                 If you're not sure which file to use for your device / don't know your device's board name, you can reference:
                 <br/>
-                <a rel="nofollow" class="external free" href="https://mrchromebox.tech/#devices">https://mrchromebox.tech/#devices</a>
-                 and/or 
-                <a rel="nofollow" class="external free" href="http://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices">http://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices
+                <a rel="nofollow" class="external free" href="https://mrchromebox.tech/#devices">https://mrchromebox.tech/#devices</a> and/or <a rel="nofollow" class="external free" href="http://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices">http://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices
                 </p>
                 </details>
-                <p>
                 <details>
                 <summary><u>Persisting the board's Vital Product Data (VPD)</u></summary>
                 <p>
@@ -179,7 +176,76 @@ Open a (non-root) terminal/shell window, change to home directory</li>
                 </li>
                 <p>
                 <code>wget https://mrchromebox.tech/files/util/cbfstool.tar.gz && tar -zxf cbfstool.tar.gz</code>
-                </p>   
+                </p>
+                <li>
+                <strong>Option 1: extract VPD from the firmware on device:</strong>
+                </li>
+                <p>
+                <code>sudo flashrom -p ch341a_spi -r badflash.rom<br>./cbfstool badflash.rom read -r RO_VPD -f vpd.bin</code>
+                </p>
+                <li>
+                <strong>Option 2: extract VPD from stock firmware backup created by Firmware Utility Script (this assumes the file has been copied into working directory):</strong>
+                </li>
+                <p>
+                <code>./cbfstool stock-firmware-<devicename>-<date>.rom read -r RO_VPD -f vpd.bin</code>
+                </p>
+                <li>
+                <strong>Then we inject the VPD into the firmware image to be flashed.</strong>
+                </li>
+                <p>
+                <code>./cbfstool <Shellball ROM/UEFI Full ROM filename> write -r RO_VPD -f vpd.bin</code>
+                </p>
+                <li>
+                Now the firmware image is ready to be flashed, and will maintain the device's unique serial, LAN MAC address, etc.
+                </li>
+                </details>
+                 <details>
+                <summary><u>Flashing your device</u></summary>
+                <p>
+                Now that everything is prepared, time to flash the device. To be thorough, we'll perform a 2nd verification after flashing to ensure the integrity of the flashed firmware.
+                </p>
+                <li>
+                <strong>Flash the firmware:</strong>
+                </li>
+                <p>
+                If flashing your own backup created by the Firmware Utility Script (or any backup made from a live system), use:
+                </p>
+                <p>
+                <code>sudo flashrom -p ch341a_spi --ifd -i bios -w <filename></code>
+                </p>
+                <p>
+                or otherwise use:
+                </p>
+                <p>
+                <code>sudo flashrom -p ch341a_spi -w <filename></code>
+                </p>
+                <p>
+                Where <filename> is the name of your backup file, UEFI firmware file, or shellball firmware file. This will usually take 30 seconds to 90 seconds to complete; flashrom will first read the flash chip, determine which sectors differ, erase those sectors, write the new data, then verify the data written.
+                </p>
+                <li>
+                <strong>Verify the firmware:</strong>
+                </li>
+                <p>
+                Even though flashrom does this as part of the write process, verifying the entire flash chip is quick and an easy way to ensure everything went as it should:
+                As before, if flashing your own backup created by the Firmware Utility Script (or any backup made from a live system), use:
+                </p>
+                <p>
+                <code>sudo flashrom -p ch341a_spi --ifd -i bios -v <filename></code>
+                </p>
+                <p>
+                or otherwise use:
+                </p>
+                <p>
+                <code>sudo flashrom -p ch341a_spi -v <filename></code>
+                </p>
+                <p>
+                using the same filename as before. If the verification passes, then disconnect the CH341a from the host machine, and then remove the chip clip.
+                </p>
+                 </details>
+                <h5>Cleaning Up</h5>
+                <p>
+                Reassembly is the reverse of disassembly. Reconnect the internal battery and replace the bottom cover. Flip over the device, connect the external power, press the power button, and cross your fingers :)
+                </p>
             </ol>
             <h3>Flashing/Unbricking with a Suzy-Q cable</h3>
             <div class="requirements">
