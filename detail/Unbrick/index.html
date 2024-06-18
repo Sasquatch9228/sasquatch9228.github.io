@@ -39,7 +39,7 @@
             <div class="warning">This can severely and dangerously harm your Chromebook if done incorrectly. Perform this exploit at your very own risk.</div>
             <p>
             Fixing a Chromebook bricked system with hardware disassembly and external devices.
-            <h3>Flashing with a CH341a USB programmer</h3>
+            <h3>Flashing/Unbricking with a CH341a USB programmer</h3>
             <div class="requirements">
                 <h3>Requirements</h3>
                 <li>A ChromeOS device with a SOIC-8 type SPI flash chip. Most Chromebooks released before 2018 use this type of chip, but there are a few notable exceptions:
@@ -48,7 +48,7 @@
 - HP Chromebook 13 G1
 - Asus Chromebook C302SA</li>
               <p>
-              These devices all use a WSON-8 flash chip, which does not expose the pins of the chip, so they cannot easily be "clipped" like a SOIC-8 chip. While it is usually possible to modify a SOIC-8 chip clip to attach to a WSON-8 chip, it's less than ideal. Both Chromebook Pixels feature a Google debug header, which can connect to a debug servo with a special cable and be flashed that way, but not an option for most users (I however do have access to one, and can unbrick Chromebook Pixels for any users upon request).  
+              <strong>These devices all use a WSON-8 flash chip, which does not expose the pins of the chip, so they cannot easily be "clipped" like a SOIC-8 chip. While it is usually possible to modify a SOIC-8 chip clip to attach to a WSON-8 chip, it's less than ideal. Both Chromebook Pixels feature a Google debug header, which can connect to a debug servo with a special cable and be flashed that way, but not an option for most users (I however do have access to one, and can unbrick Chromebook Pixels for any users upon request).</strong>  
               </p>
             </div>
             <ol>
@@ -77,7 +77,7 @@ Locate the SPI flash chip</li>
                 Once you have your device disassembled and flash chip located, time to boot up the flashing environment. Most any Linux setup should do as long as either flashrom is available from the distro's software repositories, or it's 64-bit x86 (in which case you can download a statically compiled build of flashrom from my site). This guide will use a Ubuntu 23.04 live session booted from USB.
                 </p>
                 <p>
-                So let's get to it:
+                <strong>So let's get to it:</strong>
                 </p>
                 <li>Boot your Linux environment (Ubuntu 2304 live USB or later recommended)
 Connect to WiFi/internet
@@ -86,16 +86,54 @@ Open a (non-root) terminal/shell window, change to home directory</li>
                 <code>cd;</code>
                 </p>
                 <li>
-                Install flashrom via apt:
+                <strong>Install flashrom via apt:</strong>
                 </li>
                 <p>
                 <code>sudo apt update<br>sudo apt install flashrom</code>
                 </p>
                 <li>
-                Assemble CH341a programmer, 1.8v adapter (if needed), and chip clip/wiring. Ensure that pin 1 is correct and consistent.
+                <strong>Assemble CH341a programmer, 1.8v adapter (if needed), and chip clip/wiring. Ensure that pin 1 is correct and consistent.</strong>
                 </li>
+                <p>
+                <img alt="Ch341a annotated.png" src="./images/Ch341a_annotated.png" width="500" height="205">
+                </p>
+                <li>
+                <strong>Connect the chip clip to the SPI flash chip, then connect the CH341a to the Linux host machine. Note the dot/depression indicating pin 1.</strong>
+                </li>
+                <p>
+                <img alt="SOIC-8 chip.jpg" src="./images/SOIC-8_chip.jpg" width="500" height="444"/>
+                </p>
+                <li>
+                <strong>Test connectivity and ensure the flash chip is properly identified:</strong>
+                </li>
+                <p>
+                <code>sudo flashrom -p ch341a_spi</code>      
+                </p>
+                <li>
+                Flashrom will produce output identifying the flash chip. If it doesn't, double check your connections to the programmer and the chip clip and retry.
+                </li>
+                <p>
+                <img alt="Flashrom chip detect.png" src="./images/Flashrom_chip_detect.png" width="500" height="271"/>
+                </p>
+                <li>
+                <strong>Determine file to be flashed</strong>
+                </li>
+                <p>
+                If you were flashing the UEFI firmware when things went sideways, then that's the easiest way to proceed.  You can download the UEFI firmware for your device by examining 
+                <a rel="nofollow" class="external text" href="https://github.com/MrChromebox/scripts/blob/master/sources.sh">the sources.sh file from the Firmware Utility Script GitGub repository</a>.
+                Simply concatenate the device-specific filename to the Full ROM base path:
+                </p>
+                <p>
+                <code>wget <Full ROM base path><device specific filename></code>
+                </p>
+                <li>
+                eg for the Acer Chromebook 14 CB3-431 (EDGAR)
+                </li>
+                <p>
+                <code>wget https://mrchromebox.tech/files/firmware/full_rom/coreboot_tiano-edgar-mrchromebox_20180827.rom</code>
+                </p>
             </ol>
-            <h3>Flashing with a Suzy-Q cable</h3>
+            <h3>Flashing/Unbricking with a Suzy-Q cable</h3>
             <div class="requirements">
                 <h3>Requirements</h3>
                 <li></li>
