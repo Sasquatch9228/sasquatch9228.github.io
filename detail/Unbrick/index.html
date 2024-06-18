@@ -297,7 +297,7 @@ Open a (non-root) terminal/shell window, change to home directory</li>
                 <li>
                 - Disconnect all external power
 - Remove bottom cover (screws are often located under rubber feet or strips)
-- Disconnect the internal battery
+- Disconnect the internal battery.
                 </li>
                 <details>
                 <summary><u>Preparing to flash</u></summary>
@@ -386,7 +386,7 @@ If not, then your cable is connected to the wrong port or is upside down; adjust
                 eg for the Acer Chromebook 14 CB3-431 (EDGAR):
                 </li>
                 <p>
-                wget https://mrchromebox.tech/files/firmware/shellball/shellball.edgar.bin
+                <code>wget https://mrchromebox.tech/files/firmware/shellball/shellball.edgar.bin</code>
                 </p>
                 <p>
                  If you're not sure which file to use for your device / don't know your device's board name, you can reference: https://mrchromebox.tech/#devices and/or https://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices.
@@ -413,16 +413,16 @@ If not, then your cable is connected to the wrong port or is upside down; adjust
                 <code>sudo flashrom -p raiden_debug_spi:target=AP -r badflash.rom<br>./cbfstool badflash.rom read -r RO_VPD -f vpd.bin</code>
                 </p>
                 <li>
-                <strong>Option 2: extract VPD from stock firmware backup created by Firmware Utility Script (this assumes the file has been copied into working directory):</strong>
+                <strong>Option 2: extract VPD from stock firmware backup created by Firmware Utility Script (this assumes the file has been copied into working directory and replace the '{}' symbols with '</>' symbols excluding the '/'):</strong>
                 </li>
                 <p>
-                <code>./cbfstool stock-firmware-<devicename>-<date>.rom read -r RO_VPD -f vpd.bin</code>
+                <code>./cbfstool stock-firmware-{devicename}-{date}.rom read -r RO_VPD -f vpd.bin</code>
                 </p>
                 <li>
-                <strong>Then we inject the VPD into the firmware image to be flashed.</strong>
+                <strong>Then we inject the VPD into the firmware image to be flashed. (replace the '{}' symbols with '</>' symbols excluding the '/')</strong>
                 </li>
                 <p>
-                <code>./cbfstool <Shellball ROM/UEFI Full ROM filename> write -r RO_VPD -f vpd.bin</code>
+                <code>./cbfstool {shellball ROM/UEFI Full ROM filename} write -r RO_VPD -f vpd.bin</code>
                 </p>
                 <li>
                 Now the firmware image is ready to be flashed, and will maintain the device's unique serial, LAN MAC address, etc.
@@ -451,6 +451,7 @@ If not, then your cable is connected to the wrong port or is upside down; adjust
                 <p>
                 Where <filename> is the name of your backup file, UEFI firmware file, or shellball firmware file. This will usually take 3-5 mins to complete; flashrom will first read the flash chip, determine which sectors differ, erase those sectors, write the new data, then verify the data written. The initial CCD setup make take a minute or so and not show any progress.
                 </p>
+                </details>
                 <p>
                 <strong>CLEANING UP:</strong> Once flashing is complete, disconnect the Suzy-Q cable. If the internal battery was not disconnected, the device will likely reboot as soon as flashing has completed. If the internal battery was disconnected, reconnect it and replace the bottom cover. Flip over the device, connect external power, press the power button, and cross your fingers :)
                 </p>
