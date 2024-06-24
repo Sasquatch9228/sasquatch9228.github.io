@@ -79,20 +79,30 @@
         <p>
         In the recovery utility window, click the settings icon and press "Use local image".
         <p>
+        <img src="assets/recovery_utility.png" style="width: auto; height: 350px" alt="Chromebook Recovery Utility" />
+        </p>
         Select your shim file, identify your USB drive, and start the writing process.  This can take anywhere between 30 seconds and 20 minutes, depending on the speed of your USB drive.
         <p> 
         You can also use tools such as Rufus, BalenaEtcher, etc, to flash on Windows. If you are on Linux, <code>dd</code> is recommended.
         <h3>Executing on Chromebook</h3>
         Once writing is complete, enter recovery mode on your Chromebook. This is done by pressing the power button (⏻), reload key (↻), and escape key at the same time. Your screen should look one of the images below:
         <p>
+        <img src="assets/recover_black.png" style="width: auto; height: 350px" alt="Recovery mode (groot UI)" />
+        <img src="assets/recover_white.png" style="width: auto; height: 350px" alt="Recovery mode (old UI)" />
+        </p>
         Press Ctrl+D on this screen, then press enter.
         <p>
         It will now say something about "<em>confirm returning to secure mode</em>" or that "<em>OS verification is off</em>". You will most likely not actually be in developer mode, but the exploit will work regardless. Your screen should look like one of the images below:
         <p>
+        <img src="assets/confirm_black.png" style="width: auto; height: 350px" alt="TONORM (groot UI)" />
+        <img src="assets/confirm_white.png" style="width: auto; height: 350px" alt="TONORM+FWMP (old UI)" />
+        </p>
         On this screen, press the power button (⏻), reload key (↻), and ESC key at the same time again! This is very important and cannot be skipped.
         <p>
         Once it re-shows the original recovery screen, plug your shimmed USB into your Chromebook, and press the power button (⏻), reload key (↻), and ESC key again. After a brief black-and-white loading screen, you should be in the SH1MMER menu.
         <p>
+        <img src="assets/utils-select01.png" style="width: auto; height: 350px" alt="SH1MMER Beautiful World UI" />
+        </p>
         Play around with the UI, exit, and reboot.
         <h3>The Fog</h3>
         <em>(Google's response, and why this might not be working for you)</em>
@@ -121,6 +131,9 @@
         <p>
         There are many methods to get a school Wi-Fi password while enrolled, including the policy netlog trick found by Luphoria. While on a school account and unenrolled, you can bypass Wi-Fi blocks by using a secure DNS such as Cloudflare 1.1.1.1 from <u>chrome://os-settings/osPrivacy</u>. It is also recommended to enable "<em>MAC Address Randomization</em>" in <u>chrome://flags</u> to stay hidden.
         <p>
+        <img src="assets/secure_dns.png" alt="Secure DNS" />
+       <img src="assets/mac_randomization.png" alt="MAC Address Randomization" />
+        </p>
         To take a kiosk exam, the safest option is to re-enroll back temporarily. Instructions for doing that are hosted at <a href="https://sh1mmer.me/kiosks.txt" target="_blank">kiosks.txt</a>. Saving a copy of this text file for future reference is probably a smart move to do.
         <p>
         You can also use <a href="https://github.com/MercuryWorkshop/fakemurk">fakemurk</a> as a way to enroll your device but stay in developer mode and have control over policies and extensions. You may need to use this to get Wi-Fi passwords if <u>chrome://net-export</u> is blocked.
