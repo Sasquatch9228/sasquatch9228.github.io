@@ -46,7 +46,7 @@
             <image src="assets/sh1mmer_light_banner.png"></image>
         </center>
         <h2>Shady Hardware 1nstrument Makes Machine Enrollment Retreat</h2>
-        SH1MMER is an exploit capable of completely unenrolling enterprise-managed Chromebooks. It was found by the Mercury Workshop team and was released on <u>January, Friday the 13th, 2023<u>. For more information, check out the <a href="https://coolelectronics.me/blog/breaking-cros-2">Writeup</a>.
+        SH1MMER is an exploit capable of completely unenrolling enterprise-managed Chromebooks. It was found by the Mercury Workshop team and was released on <u>January, Friday the 13th, 2023</u>. For more information, check out the <a href="https://coolelectronics.me/blog/breaking-cros-2">Writeup</a>.
         <p>
         <b>Important Note:</b> Shim downloading has been taken down by Google because of legal reasons. Use <a target="_blank" href="https://dl.osu.bio">this rehosted link</a> to get a shim for your Chromebook's board.
         <p>
@@ -62,7 +62,7 @@
         Alternate Method: Press <u>Esc + Refresh + Power</u> to enter Recovery Mode, and look up your codename on https://cros.tech/. Click your device, and your board name will be shown. Note that GRABBITER is the same as FLEEX (which is octopus) but is not shown on most online databases.
         <p>
         If your board name is in the list below, your board has a publicly leaked RMA shim. If it's not, you'll have to source it on your own.
-        <p>
+        <p style="font-size: 10px;">
         brask, brya, clapper, coral, corsola, dedede, enguarde, glimmer, grunt, hana, hatch, jacuzzi, kukui, nami, octopus, orco, pyro, reks, sentry, stout, strongbad, tidus, ultima, volteer, zork
         <p>
         First you need to download a SH1MMER bin. Download a shim at dl.sh1mmer.me, and build it with the <a href="https://sh1mmer.me/builder.html" target="_self">SH1MMER Web Builder</a>.
@@ -92,7 +92,7 @@
         </p>
         Press Ctrl+D on this screen, then press enter.
         <p>
-        It will now say something about "<em>confirm returning to secure mode</em>" or that "<em>OS verification is off</em>". You will most likely not actually be in developer mode, but the exploit will work regardless. Your screen should look like one of the images below:
+        It will now say something about "<em>confirm returning to secure mode</em>" or that "<em>OS verification is off</em>". You will most likely not actually be in developer mode, but the exploit will work regardless. Your screen should now look like one of the images below:
         <p>
         <img src="assets/confirm_black.png" style="width: auto; height: 350px" alt="TONORM (groot UI)" />
         <img src="assets/confirm_white.png" style="width: auto; height: 350px" alt="TONORM+FWMP (old UI)" />
@@ -114,11 +114,11 @@
         You only need to do this once, and it will let you use the SH1MMER exploit even after it's been completely patched.
         <ol>
             <li>Unplug everything, open the back panel, disconnect the battery to disable Write Protection, plug in the charger</li>
-            <li>Boot into SH1MMER and use "Un-Enroll / Deprovision" (yes it will show an error, but that doesn't matter)<p>(you will also need to run "<code>Disable block_devmode</code>" if you're using the old legacy version)</li>
+            <li>Boot into SH1MMER and use "Un-Enroll / Deprovision" (yes it will show an error, but that doesn't matter)<p>(you will also need to run "<code>Disable block_devmode</code>" if you're using the old legacy version).</li>
             <li>Go to the bash shell and run this command:<code>/usr/share/vboot/bin/set_gbb_flags.sh 0x8090</code>Do not use "<code>Reset GBB Flags</code>" after this.</li>
             <li>Exit SH1MMER, unplug everything, reconnect the battery, and reconnect the charger.</li>
             <li>Boot up and press Ctrl+D to enter developer mode.</li>
-            <li>When completed, use Ctrl+ALT+SHIFT+R to powerwash</li>
+            <li>When completed, use Ctrl+ALT+SHIFT+R to powerwash the Chromebook.</li>
             <li>After powerwashing, immediately enter VT2 with Ctrl+Alt+F2 (→), login as "<code>root</code>" and run these commands:<code>tpm_manager_client take_ownership<p>cryptohome --action=remove_firmware_management_parameters</code>If it fails, try downgrading to version 110 if possible. If you cannot do so, use E-Halcyon instead.<li>Press Ctrl+Alt+F1 (←), and use Ctrl+Alt+Shift+R to powerwash the Chromebook again.</li>
         </ol>
         <b>NOTE:</b> If you have a <code>dedede</code> board, your Write Protection method is probably different. Look your model up online to find the WP method.
@@ -132,7 +132,7 @@
         There are many methods to get a school Wi-Fi password while enrolled, including the policy netlog trick found by Luphoria. While on a school account and unenrolled, you can bypass Wi-Fi blocks by using a secure DNS such as Cloudflare 1.1.1.1 from <u>chrome://os-settings/osPrivacy</u>. It is also recommended to enable "<em>MAC Address Randomization</em>" in <u>chrome://flags</u> to stay hidden.
         <p>
         <img src="assets/secure_dns.png" alt="Secure DNS" />
-       <img src="assets/mac_randomization.png" alt="MAC Address Randomization" />
+        <img src="assets/mac_randomization.png" alt="MAC Address Randomization" />
         </p>
         To take a kiosk exam, the safest option is to re-enroll back temporarily. Instructions for doing that are hosted at <a href="https://sh1mmer.me/kiosks.txt" target="_blank">kiosks.txt</a>. Saving a copy of this text file for future reference is probably a smart move to do.
         <p>
