@@ -42,26 +42,37 @@
             </a>
         </h3>
         <p>
-            Collection of scripts for patching a Chrome OS RMA shim to serve as a bootloader for a standard Linux distribution. Allows booting a full desktop Debian install without unenrolling or modifying firmware.
-        <h3>Build</h3>
+            Shimboot is a collection of scripts for patching a Chrome OS RMA shim to serve as a bootloader for a standard Linux distribution. It allows you to boot a full desktop Debian install on a Chromebook, without needing to unenroll it or modify the firmware.
+        <h3>Prebuilt Images:</h3>
+        <li>Prebuilt images are available <a href="https://github.com/ading2210/shimboot/releases">here</a>. If there is not a prebuilt image for your board, you must manually build the shimboot image.</li>
+        <p>
+        For these prebuilt images, the root password is "<code>root</code>". The name of the default user is "<code>user</code>" and its password is "<code>user</code>" as well. You should change these credentials as soon as possible.
+        </p>
+        <h3>Instructions</h3>
         <ol>
-            <h3>Instructions</h3>
+            <h3>Build Instructions:</h3>
+            <li>Find the board name of your Chromebook. You can search for the model name on <a href="https://chrome100.dev/">chrome100.dev</a>.<li>
+            <li>Clone this repository and CD into it.<li>
+            <li>Run `<code>sudo ./build_complete.sh [board_name]</code>` to download the required data and build the disk image.</li>
+            <p>
+            Alternatively, you can run each of the steps manually below:
+            </p>
             <li>Grab a Chrome OS RMA Shim from somewhere. Most of them have already been leaked and aren't too difficult to find.</li>
-            <li>Download a Chrome OS recovery image for your board.</li>
-            <li>Clone this repository and CD into it.</li>
-            <li>Run <code>mkdir -p data/rootfs</code> to create a directory to hold the rootfs.</li>
-            <li>Run <code>sudo ./build_rootfs.sh data/rootfs bookworm</code> to build the base rootfs.</li>
-            <li>Run <code>sudo ./patch_rootfs.sh path_to_shim path_to_reco data/rootfs</code> to patch the base rootfs and add any needed drivers.</li>
-            <li>Run <code>sudo ./build.sh image.bin path_to_shim data/rootfs</code> to generate a disk image at `image.bin`.</li>
+            <li>Download a Chrome OS recovery image for your board at <a href="https://chromiumdash.appspot.com/serving-builds?deviceCategory=ChromeOS">this website</a>.</li>
+            <li>Run `<code>mkdir -p data/rootfs</code>` to create a directory to hold the rootfs.</li>
+            <li>Run `<code>sudo ./build_rootfs.sh data/rootfs bookworm</code>` to build the base rootfs.</li>
+            <li>Run `<code>sudo ./patch_rootfs.sh path_to_shim path_to_reco data/rootfs</code>` to patch the base rootfs and add any needed drivers.</li>
+            <li>Run `<code>sudo ./build.sh image.bin path_to_shim data/rootfs</code>` to generate a disk image at `image.bin`.</li>
         </ol>
-        <h3>Usage</h3>
+        <h3>Booting the Image:</h3>
         <ol>
-            <li>Obtain a shimboot image by downloading a prebuilt one or building it yourself.</li>
-            <li>Flash the shimboot image to a USB drive or SD card. Use the Chromebook Recovery Utility or dd if you're on Linux.</li>
-            <li>Enable developer mode on your Chromebook. If the Chromebook is enrolled, follow the instructions on the SH1MMER website (see the "Executing on Chromebook" section).</li>
+            <li>Obtain a shimboot image by downloading a <a href="https://github.com/ading2210/shimboot/releases">prebuilt one</a> or building it yourself.</li>
+            <li>Flash the shimboot image to a USB drive or SD card. Use the <a href="https://chrome.google.com/webstore/detail/chromebook-recovery-utili/pocpnlppkickgojjlmhdmidojbmbodfm">Chromebook Recovery Utility</a> or <a href="https://linux.die.net/man/1/dd">dd</a> if you're on Linux.</li>
+            <li>Enable developer mode on your Chromebook. If the Chromebook is enrolled, follow the instructions on the <a href="https://sh1mmer.me">SH1MMER website</a> (see the "Executing on Chromebook" section).</li>
             <li>Plug the USB into your Chromebook and enter recovery mode. It should detect the USB and run the shimboot bootloader.</li>
-            <li>Boot into Debian and log in with the username and password that you configured earlier. The default username/password for the prebuilt images is <code>user/user</code>.</li>
-            <li>Expand the rootfs partition so that it fills up the entire disk by running <code>sudo growpart /dev/sdX 4</code> (replacing <code>sdX</code> with the block device corresponding to your disk) to expand the partition, then running <code>sudo resize2fs /dev/sdX</code> to expand the filesystem.</li>
+            <li>Boot into Debian and log in with the username and password that you configured earlier. The default username/password for the prebuilt images is `<code>user/user</code>`.</li>
+            <li>Expand the rootfs partition so that it fills up the entire disk by running `<code>sudo growpart /dev/sdX 4</code>` (replacing `<code>sdX</code>` with the block device corresponding to your disk) to expand the partition, then running `<code>sudo resize2fs /dev/sdX</code>` to expand the filesystem.</li>
+            <li>Change the root password and regular user password by running `<code>sudo passwd root</code>` and `<code>passwd user</code>`.</li>
         </ol>
         </div>
     </body>
