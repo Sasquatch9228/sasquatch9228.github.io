@@ -115,11 +115,15 @@
         <ol>
             <li>Unplug everything, open the back panel, disconnect the battery to disable Write Protection, plug in the charger</li>
             <li>Boot into SH1MMER and use "Un-Enroll / Deprovision" (yes it will show an error, but that doesn't matter)<p>(you will also need to run "<code>Disable block_devmode</code>" if you're using the old legacy version).</li>
-            <li>Go to the bash shell and run this command:<code>/usr/share/vboot/bin/set_gbb_flags.sh 0x8090</code>Do not use "<code>Reset GBB Flags</code>" after this.</li>
+            <li>Go to the bash shell and run this command: <code>/usr/share/vboot/bin/set_gbb_flags.sh 0x8090</code>. Do not use "<code>Reset GBB Flags</code>" after this.</li>
             <li>Exit SH1MMER, unplug everything, reconnect the battery, and reconnect the charger.</li>
             <li>Boot up and press Ctrl+D to enter developer mode.</li>
             <li>When completed, use Ctrl+ALT+SHIFT+R to powerwash the Chromebook.</li>
-            <li>After powerwashing, immediately enter VT2 with Ctrl+Alt+F2 (→), login as "<code>root</code>" and run these commands:<code>tpm_manager_client take_ownership<p>cryptohome --action=remove_firmware_management_parameters</code>If it fails, try downgrading to version 110 if possible. If you cannot do so, use E-Halcyon instead.<li>Press Ctrl+Alt+F1 (←), and use Ctrl+Alt+Shift+R to powerwash the Chromebook again.</li>
+            <li>After powerwashing, immediately enter VT2 with Ctrl+Alt+F2 (→), login as "<code>root</code>" and run these commands:
+            <p>
+            <code>tpm_manager_client take_ownership<br>cryptohome --action=remove_firmware_management_parameters</code>
+            </p>
+            If it fails, try downgrading to version 110 if possible. If you cannot do so, use E-Halcyon instead.<li>Press Ctrl+Alt+F1 (←), and use Ctrl+Alt+Shift+R to powerwash the Chromebook again.</li>
         </ol>
         <b>NOTE:</b> If you have a <code>dedede</code> board, your Write Protection method is probably different. Look your model up online to find the WP method.
         <h3>What now?</h3>
