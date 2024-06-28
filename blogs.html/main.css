@@ -676,3 +676,14 @@ input:checked + .slider:before {
         scale: 1;
     }
 }
+#footer {
+  width: 100%;
+  background-color: #f2f2f2;
+  border-top: 1px solid #f2f2f2;
+  box-sizing: border-box;
+  padding: 12px
+}
+#footer p {
+  margin: 0px;
+  font-size: 14px;
+}
