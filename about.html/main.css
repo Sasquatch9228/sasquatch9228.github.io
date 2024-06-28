@@ -679,7 +679,7 @@ input:checked + .slider:before {
 #footer {
   width: 100%;
   background-color: #f2f2f2;
-  border-top: 1px solid #2f2944;
+  border-top: 1px solid #f2f2f2;
   box-sizing: border-box;
   padding: 12px
 }
