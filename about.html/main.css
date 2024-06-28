@@ -531,7 +531,7 @@ input:checked + .slider:before {
 }
 .divContent {
     height: calc(100% - 50px);
-    margin: 10px;
+    margin: 0px;
     padding: 10px;
     overflow: hidden auto;
     background-color: var(--backgroundColor);
