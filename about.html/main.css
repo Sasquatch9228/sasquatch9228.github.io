@@ -676,7 +676,6 @@ input:checked + .slider:before {
         scale: 1;
     }
 }
-
 #footer {
   width: 100%;
   background-color: #f2f2f2;
