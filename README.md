@@ -8,4 +8,6 @@ To fix this just click the back button once next to the address bar if you want 
 
 I will probably fix this miniature little glitch soon, but not right now. Anyways, I hope you guys enjoy navigating through my very own first personal website!
 
+The website is also currently being hosted on a new domain that I bought: [sasquatch9228.dev](https://sasquatch9228.dev). Check it out!
+
 Copyright 2024 Matthew6229. All rights reserved.
