@@ -64,7 +64,12 @@
                     <summary>Generate & Import Folder <em>(Automated, Recommended)</em></summary>
                     <b>Background Page URL:</b>
                     <br>
-                    <code>chrome-extension://<input id="extensionId" style="width: 230px;" type="text" placeholder="Extension ID Here" spellcheck="false"></input>/_generated_background_page.html</code>
+                    <code>chrome-extension://<input id="extensionId" style="width: 230px;" type="text" placeholder="Extension ID Here" spellcheck="false"></input>/
+                    <select id="bgpType">
+                            <option>_generated_background_page.html</option>
+                            <option>manifest.json</option>
+                        </select>
+                    </code>
                     <p>
                     <div id=main_div>
                         <div id="buttons_container">
