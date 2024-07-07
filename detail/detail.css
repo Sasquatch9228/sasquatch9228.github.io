@@ -94,6 +94,14 @@ img {
 .bookmarklet:active {
     opacity: 0.5;
 }
+.related {
+    width: fit-content;
+    min-width: 300px;
+    padding: 8px;
+    background-color: var(--accentColor);
+    border: 1px solid var(--foregroundColor);
+    border-radius: 5px;
+}
 .search-google-link, .github-forks-link {
     margin-right: 10px;
     padding: 10px;
@@ -192,24 +200,6 @@ img {
     background-color: #df68bf;
     font-size: medium;
     text-decoration: none;
-}
-.ltmeatfloodBtn {
-    display: inline-block;
-    padding: 8px;
-    margin-right: 5px;
-    color: white;
-    background-color: #df68bf;
-    border: 2px solid transparent;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: medium;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    transition: all 100ms;
-}
-.ltmeatfloodBtn:hover {
-    border-color: white;
 }
 .exportLink {
     padding: 5px;
@@ -340,7 +330,7 @@ input.nameServerInput {
 .xlakBtn {
     display: inline-block;
     padding: 12px;
-    color: white;
+    color: white !important;
     background-color: black;
     border: 2px solid white;
     border-radius: 40px;
