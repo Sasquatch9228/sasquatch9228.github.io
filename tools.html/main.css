@@ -226,14 +226,6 @@ summary::before {
 .summary[aria-expanded="false"] + .dropdown-content {
     display: none;
 }
-code {
-    display: inline-block;
-    max-width: calc(100% - 20px);
-    padding: 0px 5px;
-    background-color: rgba(110, 118, 129, 0.4);
-    border-radius: 5px;
-    overflow: auto;
-}
 textarea {
     width: 630px;
     height: 200px;
@@ -248,6 +240,30 @@ textarea {
 }
 textarea:focus {
     border-color: var(--foregroundColor);
+}
+
+/* code blocks */
+pre, code {
+  font-family: menlo;
+  background-color: var(--accentColor);
+  padding: 4px;
+  border-radius: 4px;
+  border: 1px solid #b4b2bb;
+  overflow-x: auto;
+}
+pre {
+  padding: 8px;
+}
+pre code {
+  background-color: transparent;
+  border: none;
+  padding: 0px;
+}
+code * {
+  font-family: monospace;
+}
+.codehilite {
+  border-radius: 4px;
 }
 .tag {
     display: inline-block;
