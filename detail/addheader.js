@@ -25,9 +25,9 @@ if (path.includes("/tool")) {
 tab.classList.add("tab-current");
 document.getElementById("icon").src = hrefStart + "assets/icon.png";
 document.getElementById("tab-exploits").parentElement.href = hrefStart + "index.html";
-document.getElementById("tab-tools").parentElement.href = hrefStart + "tools.html";
-document.getElementById("tab-blogs").parentElement.href = hrefStart + "blogs.html";
-document.getElementById("tab-about").parentElement.href = hrefStart + "about.html";
+document.getElementById("tab-tools").parentElement.href = hrefStart + "tools.html/index.html";
+document.getElementById("tab-blogs").parentElement.href = hrefStart + "blogs.html/index.html";
+document.getElementById("tab-about").parentElement.href = hrefStart + "about.html/index.html";
 var root = document.querySelector(":root");
 var rootstyle = getComputedStyle(root);
 // To get a root style:  rootstyle.getPropertyValue('--backgroundColor')
