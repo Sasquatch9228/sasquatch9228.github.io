@@ -40,9 +40,9 @@
             <h2>Web Accessible Resources:</h2>
             <p>If you've ever viewed an extension's <code>manifest.json</code>, you may have seen a field called <a href="https://developer.chrome.com/docs/extensions/mv3/manifest/web_accessible_resources/"><code>web_accessible_resources</code></a> somewhere towards the bottom of the <code>manifest.json</code>file. The purpose of this is to allow other webpages to view some of the extension's resources. For instance, if an extension contained the following in its manifest, then any path under <code>chrome-extension://extensionidhere/public/</code> would be accessible to any regular webpage.</p>
             <div class="codehilite" style="background: #263238"><pre style="line-height: 125%;"><span></span><code>&quot;web_accessible_resources&quot;: [
-              &quot;public/*&quot;
-            ]
-            </code></pre></div>
+  &quot;public/*&quot;
+]
+</code></pre></div>
 
             <p>Any web accessible resources can also be put inside an iframe. However, since all extension resources share a single process, any iframe of an extension resource will be part of the main extension process. Thus, by constantly creating new iframes to a web accessible resource, you can effectively freeze the entire extension. Since you are able to do this from any webpage, this does successfully allow us to bypass the <code>chrome://hang</code> block.</p>
             <h2>Implementing the Exploit:</h2>
