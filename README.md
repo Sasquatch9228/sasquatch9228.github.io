@@ -1,6 +1,6 @@
 # Sasquatch9228's Personal Website Source Code
 
-This GitHub repository provides the source code and files for my personal website, [sasquatch9228.github.io](https://sasquatch9228.github.io)
+This GitHub repository provides the source code and files for my personal website, [sasquatch9228.dev](https://sasquatch9228.dev)
 
 There is a single little glitch while going to the header pages; if you click on a header tab while you are on it except for the 'Exploits' tab, you will get a 404 'page not found' error code page.
 
@@ -10,4 +10,6 @@ I will probably fix this miniature little glitch soon, but not right now. Anyway
 
 The website is also currently being hosted on a new domain that I bought: [sasquatch9228.dev](https://sasquatch9228.dev). Check it out!
 
-Copyright 2024 Matthew6229. All rights reserved.
+## Copyright:
+
+© Copyright 2024 Sasquatch9228. All rights reserved.
