@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LTBEEF: How the stars perfectly aligned to make the most devastating bypass ever</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="../../assets/icon.png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans">
+        <link rel="stylesheet" href="../../main.css">
+        <link rel="stylesheet" href="../../detail/detail.css">
+        <script src="../../detail/addheader.js"></script>
+        <script>
+            window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+            ga('create', 'UA-XXXXX-Y', 'auto');
+            ga('send', 'pageview');
+        </script>
+    <meta name="google-site-verification" content="weY0_IfasLpB3jj53TSPZIfHSBY2obh-2hIuFTVIrhw" /></head>
+    <body style="font-size: larger;">
+        <div id="blog-content">
+            <h1>LTBEEF: How the stars perfectly aligned to make the most devastating bypass ever</h1>
+            <h3>
+                <i>by Sasquatch9228 on 07/14/2024</i>
+            </h3>
+            <image style="width: 100%; height: 460px; object-fit: cover;" src="detail/Dextensify/assets/dextensify_screenshot.png">
+            <p>
+            <center>
+            <h2>Blog Post Introduction:</h2>
+            </center>
+            <p>
+            It was just past midnight on the morning of September 13th, 2022 (12:20 AM
+            EST specifically). Almost everyone was asleep at the time. Bypassi had just been
+            having a very insightful conversation with CompactCow#4717 in the
+            <a href="https://discord.gg/unblock">Titanium Network Discord server</a>,
+            but then he went to sleep too.
+            By the time the sun rose the next morning, the landscape of bypassing
+            filters would be forever changed. Over the next couple of weeks, this
+            method would be used by tons of students around the world, and hundreds if
+            not thousands of sysadmins would be massively trolled.
+            This is the story of how LTBEEF was found, how it works, and also my
+            unsolicited opinions on sysadmins and their whiny raging.
+            But before we can continue, there are four questions that need to be
+            answered.
+            </p>
+            <h2><b>1. What is a Chrome extension?</b></h2>
+            <p>
+            Well, they're collections of scripts running in the background of Chrome.
+            Generally, blocker extensions (like GoGuardian and Securly) are
+            extensions, since Chrome provides these extensions which the
+            <code>chrome.webRequest</code> and <code>chrome.tabs</code> APIs, which can be
+            used to block websites.
+            </p>
+            <h2><b>2. What are the permission levels of Chrome extensions?</b></h2>
+            <ul>
+            <li>Component extensions</li>
+            <li>Force-installed extensions</li>
+            <li>Regular or sideloaded extensions</li>
+            </ul>
+            <p>
+            Most people know that force-installed extensions is in the
+            <code>ExtensionInstallForcelist</code> section of your district's
+            <code>chrome://policy</code> setup. The point of these is that they're,
+            well, forced (duh), so you aren't supposed to be able to get rid of them. Even
+            if you have Inspect Element allowed, Chrome prevents you from inspecting
+            force-installed extensions.
+            </p>
+            <p>
+            But most people have never heard of a component extension. These are
+            extensions that Google itself puts into Chrome. There are very, very few
+            of these but it's worth noting that their permission level is higher than
+            force-installed extensions. For example, they can even run code on
+            <code>chrome://</code> pages if they want to. The only way to really view
+            these extensions is from <code>chrome://extensions-internals</code>.
+            </p>
+            <li><b>3. What are the other installable things that aren't Chrome extensions?</b></li>
+            <ul>
+            <li>Chrome Themes</li>
+            <li>Packaged apps</li>
+            <li>Hosted apps</li>
+            </ul>
+            <p>
+            The difference between packaged apps and hosted apps is huge. Packaged apps are just regular apps and games such as
+            <a href="https://chrome.google.com/webstore/detail/cut-the-rope/jfbadlndcminbkfojhlimnkgaackjmdo">Cut the Rope</a>.
+            <b>Hosted apps, on the other hand, are like instructions to the browsertelling them to act as if some website is an application.</b>
+            That website will then be able to access stuff that an app would, along with extra permissions in the downloaded manifest file.
+            </p>
+            <img src="detail/LTBEEF/archive/blog/sasquatch9228/detail/LTBEEF/assets/app-battle.png"/>
+            <p>
+            There are very few practical uses for hosted apps; at best, they can allow
+            gaming websites to use accelerated 3D rendering. When a hosted app is
+            downloaded, clicking on its launcher icon will just take you to the website itself.
+            Since these apps are so useless (and because they use
+            <a href="https://developer.chrome.com/docs/extensions/mv3/mv2-sunset/">Manifest V2</a>), 
+            Google is no longer allowing hosted apps to be downloaded from the
+            Chrome Web Store. Eventually, they will be fully phased out.
+            </p>
+            <li><b>4. What is the <code>management</code> permission?</b></li>
+        </div>
+    </body>
+</html>
