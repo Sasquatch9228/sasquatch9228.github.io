@@ -80,7 +80,7 @@
             <p>
             The difference between packaged apps and hosted apps is huge. Packaged apps are just regular apps and games such as
             <a href="https://chrome.google.com/webstore/detail/cut-the-rope/jfbadlndcminbkfojhlimnkgaackjmdo">Cut the Rope</a>.
-            <b>Hosted apps, on the other hand, are like instructions to the browsertelling them to act as if some website is an application.</b>
+            <b>Hosted apps, on the other hand, are like instructions to the browser telling them to act as if some website is an application.</b>
             That website will then be able to access stuff that an application would, along with extra permissions in the downloaded manifest file.
             </p>
             <img src="detail/LTBEEF/archive/blog/sasquatch9228/detail/LTBEEF/assets/app-battle.png"/>
@@ -94,6 +94,41 @@
             Chrome Web Store. Eventually, they will be fully phased out.
             </p>
             <h2><b>4. What is the <code>management</code> permission?</b></h2>
+            <p>
+            This permission can be requested by extensions, and it
+            <a href="https://developer.chrome.com/docs/extensions/reference/management/">allows them to enable or disable other extensions</a>. But there is a catch.
+            <b>Extensions can only disable extensions on the same or lower level than them.</b>
+            For example, an Chrome extension that you install yourself could not disable a
+            force-installed Chrome extension such as GoGuardian or Securly, even if it has <code>management</code> permissions.
+            Another interesting quirk is that only regular or sideloaded Chrome extensions
+            are allowed to use <code>chrome.management.uninstallSelf()</code>, but
+            <code>chrome.management.setEnabled()</code> is fair game on force-installed
+            Chrome extensions too (assuming it passes the permission level checks).
+            Phew, that's a lot to remember. With all this said, let's get into the
+            workings of LTBEEF.
+            </p>
+            <h2><b>The workings of the LTBEEF exploit</b></h2>
+            <p>
+            Before CompactCow (the Discord guy) went to sleep, he brought up the fact
+            that the <a href="https://chrome.google.com/webstore">Web Store website</a> seemed
+            to have a permission called <code>chrome.webstorePrivate</code>.
+            </p>
+            <p>
+            So a website has special permissions. Sounds familiar? Yep, turns out that there is a
+            <a href="https://source.chromium.org/chromium/chromium/src/+/main:chrome/browser/resources/webstore_app/manifest.json">hosted app called "Web Store"</a>
+            built into every Chrome installation. What's more, <b>this glorified website is on the component (highest) level.</b> You can
+            see the "application" for yourself by searching for it in the ChromeOS launch menu.
+            </p>
+            <p>
+            And guess which other permission they gave it? That's right, the <code>management</code> permission.
+            </p>
+            <p>
+            So. Wait. <kbd>chrome.google.com/webstore</kbd> can disable forced admin-installed extensions? Surely not-
+            </p>
+            <p>
+            Oh. It can.
+            </p>
+            <img src="detail/LTBEEF/archive/blog/sasquatch9228/detail/LTBEEF/archive/blog/sasquatch9228/detail/LTBEEF/assets/disabled.png"/>
         </div>
     </body>
 </html>
