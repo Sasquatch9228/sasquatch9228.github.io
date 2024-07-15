@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bypassing the Securly Extension by Manipulating the URL</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="../../assets/icon.png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans">
+        <link rel="stylesheet" href="../../main.css">
+        <link rel="stylesheet" href="../../detail/detail.css">
+        <script src="../../detail/addheader.js"></script>
+        <script>
+            window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+            ga('create', 'UA-XXXXX-Y', 'auto');
+            ga('send', 'pageview');
+        </script>
+    <meta name="google-site-verification" content="weY0_IfasLpB3jj53TSPZIfHSBY2obh-2hIuFTVIrhw" /></head>
+    <body style="font-size: larger;">
+        <div id="blog-content">
+            <h1>Bypassing the Securly Extension by Manipulating the URL</h1>
+            <h3>
+                <i>by Sasquatch9228 on 07/15/2024</i>
+            </h3>
+            <center>
+            <h2>Blog Post Introduction:</h2>
+            </center>
+            <p>
+            Securly is a web filtering company primarily targeting K-12 schools. Their main product is a Chrome extension for blocking webpages on school-owned Chromebooks. If you look into the extension's source code, however, you will find a few oversights which could be abused. This blog post will mainly focus on the ones that involve modifying the URL of the blocked webpage.
+            </p>
+            <h2>Making a Website Unblockable:</h2> 
+            <p>
+            Inside Securly's background JavaScript file, there is a function called 
+            <code>isBlockingInProgress</code>. This line of code is responsible for checking to see if a page is in the process of being blocked. If this returns <code>true</code>
+            on a particular URL, then Securly won't bother filtering the page, as it'll assume that it's already doing so.
+            </p>
+            <p>Here is what the function looks like, with the variable names altered for readability purposes:</p>
+            <div class="codehilite" style="background: #263238">
+                <pre style="line-height: 125%;">
+                    <span></span>
+                    <code>
+                        <span style="color: #BB80B3">function</span>
+                        <span style="color: #EEFFFF"> isBlockingInProgress</span>
+                        <span style="color: #89DDFF">(</span>
+                        <span style="color: #EEFFFF">tabId</span>
+                        <span style="color: #89DDFF">,</span>
+                        <span style="color: #EEFFFF"> url</span>
+                        <span style="color: #89DDFF">)</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">{</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #BB80B3">return</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF; font-style: italic">new</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #82AAFF">Promise</span>
+                        <span style="color: #89DDFF">(</span>
+                        <span style="color: #BB80B3">function</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">(</span>
+                        <span style="color: #EEFFFF">resolve</span>
+                        <span style="color: #89DDFF">,</span>
+                        <span style="color: #EEFFFF"> reject</span>
+                        <span style="color: #89DDFF">)</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">{</span>
+                        <span style="color: #EEFFFF">    chrome</span>
+                        <span style="color: #89DDFF">.</span>
+                        <span style="color: #EEFFFF">tabs</span>
+                        <span style="color: #89DDFF">.</span>
+                        <span style="color: #EEFFFF">get</span>
+                        <span style="color: #89DDFF">(</span>
+                        <span style="color: #EEFFFF">tabId</span>
+                        <span style="color: #89DDFF">,</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #BB80B3">function</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">(</span>
+                        <span style="color: #EEFFFF">tab</span>
+                        <span style="color: #89DDFF">)</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">{</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #BB80B3">if</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">(</span>
+                        <span style="color: #EEFFFF">tab </span>
+                        <span style="color: #89DDFF">&amp;&amp;</span>
+                        <span style="color: #EEFFFF"> tab</span>
+                        <span style="color: #89DDFF">.</span>
+                        <span style="color: #EEFFFF">status </span>
+                        <span style="color: #89DDFF">==</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #C3E88D">&quot;loading&quot;</span>
+                        <span style="color: #89DDFF">)</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">{</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #BB80B3">var</span>
+                        <span style="color: #EEFFFF"> host </span>
+                        <span style="color: #89DDFF">=</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF; font-style: italic">new</span>
+                        <span style="color: #EEFFFF"> URL</span>
+                        <span style="color: #89DDFF">(</span>
+                        <span style="color: #EEFFFF">url</span>
+                        <span style="color: #89DDFF">).</span>
+                        <span style="color: #EEFFFF">hostname</span>
+                        <span style="color: #89DDFF">;</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #BB80B3">if</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">(</span>
+                        <span style="color: #EEFFFF">host</span>
+                        <span style="color: #89DDFF">.</span>
+                        <span style="color: #EEFFFF">indexOf</span>
+                        <span style="color: #89DDFF">(</span>
+                        <span style="color: #C3E88D">&quot;securly.com&quot;</span>
+                        <span style="color: #89DDFF">)</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">!=</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">-</span>
+                        <span style="color: #F78C6C">1</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">||</span>
+                        <span style="color: #EEFFFF"> host</span>
+                        <span style="color: #89DDFF">.</span>
+                        <span style="color: #EEFFFF">indexOf</span>
+                        <span style="color: #89DDFF">(</span>
+                        <span style="color: #C3E88D">&quot;iheobagjkfklnlikgihanlhcddjoihkg&quot;</span>
+                        <span style="color: #89DDFF">)</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">!=</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">-</span>
+                        <span style="color: #F78C6C">1</span>
+                        <span style="color: #89DDFF">)</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">{</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #BB80B3">return</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF; font-style: italic">void</span>
+                        <span style="color: #EEFFFF"> resolve</span>
+                        <span style="color: #89DDFF">(true);</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">}</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #BB80B3">if</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">(</span>
+                        <span style="color: #EEFFFF">tab</span>
+                        <span style="color: #89DDFF">.</span>
+                        <span style="color: #EEFFFF">pendingUrl </span>
+                        <span style="color: #89DDFF">!==</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">undefined</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">&amp;&amp;</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">((</span>
+                        <span style="color: #EEFFFF">host </span>
+                        <span style="color: #89DDFF">=</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF; font-style: italic">new</span>
+                        <span style="color: #EEFFFF"> URL</span>
+                        <span style="color: #89DDFF">(</span>
+                        <span style="color: #EEFFFF">tab</span>
+                        <span style="color: #89DDFF">.</span>
+                        <span style="color: #EEFFFF">pendingUrl</span>
+                        <span style="color: #89DDFF">).</span>
+                        <span style="color: #EEFFFF">hostname</span>
+                        <span style="color: #89DDFF">).</span>
+                        <span style="color: #EEFFFF">indexOf</span>
+                        <span style="color: #89DDFF">(</span>
+                        <span style="color: #C3E88D">&quot;securly.com&quot;</span>
+                        <span style="color: #89DDFF">)</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">!=</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">-</span>
+                        <span style="color: #F78C6C">1</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">||</span>
+                        <span style="color: #EEFFFF"> host</span>
+                        <span style="color: #89DDFF">.</span>
+                        <span style="color: #EEFFFF">indexOf</span>
+                        <span style="color: #89DDFF">(</span>
+                        <span style="color: #C3E88D">&quot;iheobagjkfklnlikgihanlhcddjoihkg&quot;</span>
+                        <span style="color: #89DDFF">)</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">!=</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">-</span>
+                        <span style="color: #F78C6C">1</span>
+                        <span style="color: #89DDFF">))</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">{</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #BB80B3">return</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF; font-style: italic">void</span>
+                        <span style="color: #EEFFFF"> resolve</span>
+                        <span style="color: #89DDFF">(true);</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">}</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">}</span>
+                        <span style="color: #EEFFFF">      resolve</span>
+                        <span style="color: #89DDFF">(false);</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">});</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">});</span>
+                        <span style="color: #89DDFF">}</span>
+                    </code>
+                </pre>
+            </div>
+
+            <p>These four lines of code are the important bit:</p>
+            <div class="codehilite" style="background: #263238">
+                <pre style="line-height: 125%;">
+                    <span></span>
+                    <code>
+                        <span style="color: #BB80B3">var</span>
+                        <span style="color: #EEFFFF"> host </span>
+                        <span style="color: #89DDFF">=</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF; font-style: italic">new</span>
+                        <span style="color: #EEFFFF"> URL</span>
+                        <span style="color: #89DDFF">(</span>
+                        <span style="color: #EEFFFF">url</span>
+                        <span style="color: #89DDFF">).</span>
+                        <span style="color: #EEFFFF">hostname</span>
+                        <span style="color: #89DDFF">;</span>
+                        <span style="color: #BB80B3">if</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">(</span>
+                        <span style="color: #EEFFFF">host</span>
+                        <span style="color: #89DDFF">.</span>
+                        <span style="color: #EEFFFF">indexOf</span>
+                        <span style="color: #89DDFF">(</span>
+                        <span style="color: #C3E88D">&quot;securly.com&quot;</span>
+                        <span style="color: #89DDFF">)</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">!=</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">-</span>
+                        <span style="color: #F78C6C">1</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">||</span>
+                        <span style="color: #EEFFFF"> host</span>
+                        <span style="color: #89DDFF">.</span>
+                        <span style="color: #EEFFFF">indexOf</span>
+                        <span style="color: #89DDFF">(</span>
+                        <span style="color: #C3E88D">&quot;iheobagjkfklnlikgihanlhcddjoihkg&quot;</span>
+                        <span style="color: #89DDFF">)</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">!=</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">-</span>
+                        <span style="color: #F78C6C">1</span>
+                        <span style="color: #89DDFF">)</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">{</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #BB80B3">return</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF; font-style: italic">void</span>
+                        <span style="color: #EEFFFF"> resolve</span>
+                        <span style="color: #89DDFF">(true);</span>
+                        <span style="color: #89DDFF">}</span>
+                    </code>
+                </pre>
+            </div>
+
+            <p>
+            The 
+            <code>host</code> variable is set to the URL's <a href="https://developer.mozilla.org/en-US/docs/Web/API/URL/hostname">hostname</a>, 
+            which includes the domain and any subdomains. For example, if the provided URL was <code>https://a.b.example.com</code>, then 
+            <code>host</code> will be set to <code>a.b.example.com</code>.
+            </p>
+            <p>
+            The script then checks to see if 
+            <code>securly.com</code> or <code>iheobagjkfklnlikgihanlhcddjoihkg</code> appears in the hostname, and it will return 
+            <code>true</code> of that's the case. Notably, <code>securly.com</code> can be <em>anywhere</em>
+            in the hostname for this condition to be satisfied, which allows it to be abused.
+            </p>
+            <p>
+            Due to this oversight, you can just make a subdomain at code>securly.com.yourdomain.com</code>, if you have your own domain. 
+            If you do not own a domain yet, you can register free subdomains at 
+            <a href="http://freedns.afraid.org/">FreeDNS</a>. You can also register a domain that ends with 
+            <code>securly.com</code>, such as, <a href="https://www.disablesecurly.com/">disablesecurly.com</a>. By doing this, when Securly tries to filter your webpage, the 
+            <code>isBlockingInProgress</code> function will return <code>true</code>, preventing Securly from blocking the webpage.
+            </p>
+            <h2>Unblocking a Webpage by Imitating Google Translate:</h2>
+            <p>
+            There's actually an even easier method to unblock websites, which was found by 
+            <a href="https://discord.com/users/1148629924899463168"><code>@xcr15_51037</code></a>. If you simply add <code>#translate.google.com</code>
+            to the end of a blocked URL, Securly will ignore its filters and let you visit the blocked URL. But why does this occur?
+            </p>
+            <p>
+            Once again, the culprit is in Securly's background JavaScript file. In it, there's a function which intercepts every HTTP request that the browser makes, and this is aptly called 
+            <code>onBeforeRequestListener</code>. Towards the end of the function, right before the extension asks Securly's servers if a site is blocked, 
+            there's this snippet of code. As with before, the variable names have been changed and altered for readability purposes.
+            </p>
+                        <div class="codehilite" style="background: #263238">
+                <pre style="line-height: 125%;">
+                    <span></span>
+                    <code>
+                        <span style="color: #BB80B3">if</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">(</span>
+                        <span style="color: #EEFFFF">url</span>
+                        <span style="color: #89DDFF">.</span>
+                        <span style="color: #EEFFFF">indexOf</span>
+                        <span style="color: #89DDFF">(</span>
+                        <span style="color: #C3E88D">&quot;translate.google.com&quot;</span>
+                        <span style="color: #89DDFF">)</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">!=</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">-</span>
+                        <span style="color: #F78C6C">1</span>
+                        <span style="color: #89DDFF">)</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">{</span>
+                        <span style="color: #EEFFFF">  hostname </span>
+                        <span style="color: #89DDFF">=</span>
+                        <span style="color: #EEFFFF"> extractTranslateHostname</span>
+                        <span style="color: #89DDFF">(</span>
+                        <span style="color: #EEFFFF">url</span>
+                        <span style="color: #89DDFF">);</span>
+                        <span style="color: #89DDFF">}</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #BB80B3">else</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">{</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">(</span>
+                        <span style="color: #EEFFFF">element </span>
+                        <span style="color: #89DDFF">=</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #82AAFF">document</span>
+                        <span style="color: #89DDFF">.</span>
+                        <span style="color: #EEFFFF">createElement</span>
+                        <span style="color: #89DDFF">(</span>
+                        <span style="color: #C3E88D">&quot;a&quot;</span>
+                        <span style="color: #89DDFF">)).</span>
+                        <span style="color: #EEFFFF">href </span>
+                        <span style="color: #89DDFF">=</span>
+                        <span style="color: #EEFFFF"> url</span>
+                        <span style="color: #89DDFF">;</span>
+                        <span style="color: #EEFFFF">  hostname </span>
+                        <span style="color: #89DDFF">=</span>
+                        <span style="color: #EEFFFF"> element</span>
+                        <span style="color: #89DDFF">.</span>
+                        <span style="color: #EEFFFF">hostname</span>
+                        <span style="color: #89DDFF">.</span>
+                        <span style="color: #EEFFFF">toLowerCase</span>
+                        <span style="color: #89DDFF">();</span>
+                        <span style="color: #89DDFF">}</span>
+                    </code>
+                </pre>
+            </div>
+
+            <p>
+            If the extension finds the string <code>translate.google.com</code> anywhere in the URL, it'll pass that URL into 
+            code>extractTranslateHostname</code>, which will just return <code>translate.google.com</code>. 
+            By doing this, it essentially overrides the detected hostname and sets it to that of Google Translate rather what it actually is. 
+            </p>
+            <p>
+            This is reflected in the subsequent HTTP request that is sent to Securly to check whether the page is blocked: 
+            <img alt="A screenshot of the Securly background page open in devtools" src="/blog/assets/securly_bypass/securly_devtools.png">
+            </p>
+            <p>
+            I have just visited <code>https://old.reddit.com/#translate.google.com</code>, but the extension has overridden the hostname to be 
+            <code>translate.google.com</code>, so it doesn't block the webpage.
+            </p>
+            <h2>Bonus Content: Bypassing Securly's Proxy Detection:</h2>
+            <p>
+            While I was writing this blog post article, Securly pushed out an update (2.98.55) which implemented a new proxy detection feature. This update added a new content script 
+            (<code>content10.min.js</code>), which is injected into every website you visit. 
+            Inside this file, there is a function which runs every two seconds, checking the DOM for any elements that might be part of a proxy website. 
+            </p>
+                        <div class="codehilite" style="background: #263238">
+                <pre style="line-height: 125%;">
+                    <span></span>
+                    <code>
+                        <span style="color: #BB80B3">const</span>
+                        <span style="color: #EEFFFF"> o </span>
+                        <span style="color: #89DDFF">=</span>
+                        <span style="color: #EEFFFF"> setInterval</span>
+                        <span style="color: #89DDFF">(()</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">=&gt;</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">{</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #BB80B3">if</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">(</span>
+                        <span style="color: #82AAFF">document</span>
+                        <span style="color: #89DDFF">.</span>
+                        <span style="color: #EEFFFF">location</span>
+                        <span style="color: #89DDFF">.</span>
+                        <span style="color: #EEFFFF">origin</span>
+                        <span style="color: #89DDFF">.</span>
+                        <span style="color: #EEFFFF">includes</span>
+                        <span style="color: #89DDFF">(</span>
+                        <span style="color: #C3E88D">&quot;securly.com&quot;</span>
+                        <span style="color: #89DDFF">))</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">{</span>
+                        <span style="color: #EEFFFF">    clearInterval</span>
+                        <span style="color: #89DDFF">(</span>
+                        <span style="color: #EEFFFF">o</span>
+                        <span style="color: #89DDFF">);</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">}</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #BB80B3">else</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">{</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #546E7A; font-style: italic">//check for proxies and report back to the extension</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #89DDFF">}</span>
+                        <span style="color: #89DDFF">},</span>
+                        <span style="color: #EEFFFF"></span>
+                        <span style="color: #F78C6C">2000</span>
+                        <span style="color: #89DDFF">);</span>
+                    </code>
+                </pre>
+            </div>
+
+            <p>
+            It looks like they've made the same mistake as before with implementing an overly broad whitelist of their 
+            <code>securly.com</code> domain. In this case, if the website's 
+            <a href="https://developer.mozilla.org/en-US/docs/Web/API/Location/origin">origin</a> contains <code>securly.com</code>, 
+            then the interval will be cleared, therefore disabling the proxy detection.
+            </p>
+            <h2>Conclusion:</h2>
+            <p>
+            It's not a surprise that Securly is repeating their <a href="https://sheeptester.github.io/longer-tweets/securly-bypass/">older mistakes</a>, 
+            considering their already dodgy code quality and privacy practices. For a company claiming to be all about "student safety," 
+            they sure do not seem to care about actually writing secure code. 
+            If you're stuck with Securly, you fortunately now have a few more ways to get around their filtering thanks to these dumb mistakes.
+            </p>
+        </div>
+    </body>
+</html>
