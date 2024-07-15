@@ -260,7 +260,7 @@ pre code {
   padding: 0px;
 }
 code * {
-  font-family: monospace;
+  font-family: menlo;
 }
 .codehilite {
   border-radius: 4px;
