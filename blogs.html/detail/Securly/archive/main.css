@@ -264,7 +264,7 @@ code * {
 }
 .codehilite {
   border-radius: 4px;
-  font-size: smaller; 
+  font-size: small; 
 }
 .tag {
     display: inline-block;
