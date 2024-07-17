@@ -93,65 +93,15 @@
             <code>onBeforeRequestListener</code>. Towards the end of the function, right before the extension asks Securly's servers if a site is blocked, 
             there's this snippet of code. As with before, the variable names have been changed and altered for readability purposes.
             </p>
-                        <div class="codehilite" style="background: #263238">
-                <pre style="line-height: 125%;">
-                    <span></span>
-                    <code>
-                        <span style="color: #BB80B3">if</span>
-                        <span style="color: #EEFFFF"></span>
-                        <span style="color: #89DDFF">(</span>
-                        <span style="color: #EEFFFF">url</span>
-                        <span style="color: #89DDFF">.</span>
-                        <span style="color: #EEFFFF">indexOf</span>
-                        <span style="color: #89DDFF">(</span>
-                        <span style="color: #C3E88D">&quot;translate.google.com&quot;</span>
-                        <span style="color: #89DDFF">)</span>
-                        <span style="color: #EEFFFF"></span>
-                        <span style="color: #89DDFF">!=</span>
-                        <span style="color: #EEFFFF"></span>
-                        <span style="color: #89DDFF">-</span>
-                        <span style="color: #F78C6C">1</span>
-                        <span style="color: #89DDFF">)</span>
-                        <span style="color: #EEFFFF"></span>
-                        <span style="color: #89DDFF">{</span>
-                        <span style="color: #EEFFFF">  hostname </span>
-                        <span style="color: #89DDFF">=</span>
-                        <span style="color: #EEFFFF"> extractTranslateHostname</span>
-                        <span style="color: #89DDFF">(</span>
-                        <span style="color: #EEFFFF">url</span>
-                        <span style="color: #89DDFF">);</span>
-                        <span style="color: #89DDFF">}</span>
-                        <span style="color: #EEFFFF"></span>
-                        <span style="color: #BB80B3">else</span>
-                        <span style="color: #EEFFFF"></span>
-                        <span style="color: #89DDFF">{</span>
-                        <span style="color: #EEFFFF"></span>
-                        <span style="color: #89DDFF">(</span>
-                        <span style="color: #EEFFFF">element </span>
-                        <span style="color: #89DDFF">=</span>
-                        <span style="color: #EEFFFF"></span>
-                        <span style="color: #82AAFF">document</span>
-                        <span style="color: #89DDFF">.</span>
-                        <span style="color: #EEFFFF">createElement</span>
-                        <span style="color: #89DDFF">(</span>
-                        <span style="color: #C3E88D">&quot;a&quot;</span>
-                        <span style="color: #89DDFF">)).</span>
-                        <span style="color: #EEFFFF">href </span>
-                        <span style="color: #89DDFF">=</span>
-                        <span style="color: #EEFFFF"> url</span>
-                        <span style="color: #89DDFF">;</span>
-                        <span style="color: #EEFFFF">  hostname </span>
-                        <span style="color: #89DDFF">=</span>
-                        <span style="color: #EEFFFF"> element</span>
-                        <span style="color: #89DDFF">.</span>
-                        <span style="color: #EEFFFF">hostname</span>
-                        <span style="color: #89DDFF">.</span>
-                        <span style="color: #EEFFFF">toLowerCase</span>
-                        <span style="color: #89DDFF">();</span>
-                        <span style="color: #89DDFF">}</span>
-                    </code>
-                </pre>
-            </div>
+<div class="codehilite" style="background: #263238"><pre style="line-height: 125%;"><span style="color: #BB80B3">if</span><span style="color: #EEFFFF"> </span><span style="color: #89DDFF">(</span><span style="color: #EEFFFF">url</span><span style="color: #89DDFF">.</span><span style="color: #EEFFFF">indexOf</span><span style="color: #89DDFF">(</span><span style="color: #C3E88D">&quot;translate.google.com&quot;</span><span style="color: #89DDFF">)</span><span style="color: #EEFFFF"> </span><span style="color: #89DDFF">!=</span><span style="color: #EEFFFF"> </span><span style="color: #89DDFF">-</span><span style="color: #F78C6C">1</span><span style="color: #89DDFF">)</span><span style="color: #EEFFFF"></span><span style="color: #89DDFF">{</span>
+  <span style="color: #EEFFFF">  hostname </span><span style="color: #89DDFF">=</span><span style="color: #EEFFFF"> extractTranslateHostname</span><span style="color: #89DDFF">(</span><span style="color: #EEFFFF">url</span><span style="color: #89DDFF">);</span>
+<span style="color: #89DDFF">}</span><span style="color: #EEFFFF"> </span><span style="color: #BB80B3">else</span><span style="color: #EEFFFF"> </span><span style="color: #89DDFF">{</span>
+ <span style="color: #EEFFFF"> </span><span style="color: #89DDFF">(</span><span style="color: #EEFFFF">element </span><span style="color: #89DDFF">=</span><span style="color: #EEFFFF"> </span><span style="color: #82AAFF">document</span><span style="color: #89DDFF">.</span><span style="color: #EEFFFF">createElement</span><span style="color: #89DDFF">(</span><span style="color: #C3E88D">&quot;a&quot;</span><span style="color: #89DDFF">)).</span><span style="color: #EEFFFF">href </span><span style="color: #89DDFF">=</span><span style="color: #EEFFFF"> url</span><span style="color: #89DDFF">;</span>
+<span style="color: #EEFFFF">  hostname </span><span style="color: #89DDFF">=</span><span style="color: #EEFFFF"> element</span><span style="color: #89DDFF">.</span><span style="color: #EEFFFF">hostname</span><span style="color: #89DDFF">.</span><span style="color: #EEFFFF">toLowerCase</span><span style="color: #89DDFF">();</span>
+<span style="color: #89DDFF">}</span>
+        </code>
+    </pre>
+</div>
 
             <p>
             If the extension finds the string <code>translate.google.com</code> anywhere in the URL, it'll pass that URL into 
