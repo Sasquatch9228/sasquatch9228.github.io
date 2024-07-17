@@ -122,69 +122,29 @@
             (<code>content10.min.js</code>), which is injected into every website you visit. 
             Inside this file, there is a function which runs every two seconds, checking the DOM for any elements that might be part of a proxy website. 
             </p>
-                        <div class="codehilite" style="background: #263238">
-                <pre style="line-height: 125%;">
-                    <span></span>
-                    <code>
-                        <span style="color: #BB80B3">const</span>
-                        <span style="color: #EEFFFF"> o </span>
-                        <span style="color: #89DDFF">=</span>
-                        <span style="color: #EEFFFF"> setInterval</span>
-                        <span style="color: #89DDFF">(()</span>
-                        <span style="color: #EEFFFF"></span>
-                        <span style="color: #89DDFF">=&gt;</span>
-                        <span style="color: #EEFFFF"></span>
-                        <span style="color: #89DDFF">{</span>
-                        <span style="color: #EEFFFF"></span>
-                        <span style="color: #BB80B3">if</span>
-                        <span style="color: #EEFFFF"></span>
-                        <span style="color: #89DDFF">(</span>
-                        <span style="color: #82AAFF">document</span>
-                        <span style="color: #89DDFF">.</span>
-                        <span style="color: #EEFFFF">location</span>
-                        <span style="color: #89DDFF">.</span>
-                        <span style="color: #EEFFFF">origin</span>
-                        <span style="color: #89DDFF">.</span>
-                        <span style="color: #EEFFFF">includes</span>
-                        <span style="color: #89DDFF">(</span>
-                        <span style="color: #C3E88D">&quot;securly.com&quot;</span>
-                        <span style="color: #89DDFF">))</span>
-                        <span style="color: #EEFFFF"></span>
-                        <span style="color: #89DDFF">{</span>
-                        <span style="color: #EEFFFF">    clearInterval</span>
-                        <span style="color: #89DDFF">(</span>
-                        <span style="color: #EEFFFF">o</span>
-                        <span style="color: #89DDFF">);</span>
-                        <span style="color: #EEFFFF"></span>
-                        <span style="color: #89DDFF">}</span>
-                        <span style="color: #EEFFFF"></span>
-                        <span style="color: #BB80B3">else</span>
-                        <span style="color: #EEFFFF"></span>
-                        <span style="color: #89DDFF">{</span>
-                        <span style="color: #EEFFFF"></span>
-                        <span style="color: #546E7A; font-style: italic">//check for proxies and report back to the extension</span>
-                        <span style="color: #EEFFFF"></span>
-                        <span style="color: #89DDFF">}</span>
-                        <span style="color: #89DDFF">},</span>
-                        <span style="color: #EEFFFF"></span>
-                        <span style="color: #F78C6C">2000</span>
-                        <span style="color: #89DDFF">);</span>
-                    </code>
-                </pre>
-            </div>
+<div class="codehilite" style="background: #263238"><pre style="line-height: 125%;"><span style="color: #BB80B3">const</span><span style="color: #EEFFFF"> o </span><span style="color: #89DDFF">=</span><span style="color: #EEFFFF"> setInterval</span><span style="color: #89DDFF">(()</span><span style="color: #EEFFFF"> </span><span style="color: #89DDFF">=&gt;</span><span style="color: #EEFFFF"> </span><span style="color: #89DDFF">{</span>
+ <span style="color: #EEFFFF"> </span><span style="color: #BB80B3">if</span><span style="color: #EEFFFF"> </span><span style="color: #89DDFF">(</span><span style="color: #82AAFF">document</span><span style="color: #89DDFF">.</span><span style="color: #EEFFFF">location</span><span style="color: #89DDFF">.</span><span style="color: #EEFFFF">origin</span><span style="color: #89DDFF">.</span><span style="color: #EEFFFF">includes</span><span style="color: #89DDFF">(</span><span style="color: #C3E88D">&quot;securly.com&quot;</span><span style="color: #89DDFF">))</span><span style="color: #EEFFFF"> </span><span style="color: #89DDFF">{</span>
+<span style="color: #EEFFFF">    clearInterval</span><span style="color: #89DDFF">(</span><span style="color: #EEFFFF">o</span><span style="color: #89DDFF">);</span>
+ <span style="color: #EEFFFF"> </span><span style="color: #89DDFF">}</span><span style="color: #EEFFFF"> </span><span style="color: #BB80B3">else</span><span style="color: #EEFFFF"> </span><span style="color: #89DDFF">{</span>
+   <span style="color: #EEFFFF"> </span><span style="color: #546E7A; font-style: italic">//check for proxies and report back to the extension</span>
+ <span style="color: #EEFFFF"> </span><span style="color: #89DDFF">}</span>
+<span style="color: #89DDFF">},</span><span style="color: #EEFFFF"> </span><span style="color: #F78C6C">2000</span><span style="color: #89DDFF">);</span>
+        </code>
+    </pre>
+</div>
 
             <p>
             It looks like they've made the same mistake as before with implementing an overly broad whitelist of their 
             <code>securly.com</code> domain. In this case, if the website's 
             <a href="https://developer.mozilla.org/en-US/docs/Web/API/Location/origin">origin</a> contains <code>securly.com</code>, 
-            then the interval will be cleared, therefore disabling the proxy detection.
+            then the interval will be cleared, therefore successfully disabling the new proxy detection feature.
             </p>
             <h2>Conclusion:</h2>
             <p>
             It's not a surprise that Securly is repeating their <a href="https://sheeptester.github.io/longer-tweets/securly-bypass/">older mistakes</a>, 
             considering their already dodgy code quality and privacy practices. For a company claiming to be all about "student safety," 
             they sure do not seem to care about actually writing secure code. 
-            If you're stuck with Securly, you fortunately now have a few more ways to get around their filtering thanks to these dumb mistakes.
+            If you're stuck with Securly, you fortunately now have a few more ways to get around their restrictive filtering thanks to these dumb mistakes.
             </p>
         </div>
     </body>
