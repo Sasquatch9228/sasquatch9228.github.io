@@ -76,7 +76,7 @@
             in the hostname for this condition to be satisfied, which allows it to be abused.
             </p>
             <p>
-            Due to this oversight, you can just make a subdomain at code>securly.com.yourdomain.com</code>, if you have your own domain. 
+            Due to this oversight, you can just make a subdomain at <code>securly.com.yourdomain.com</code>, if you have your own domain. 
             If you do not own a domain yet, you can register free subdomains at 
             <a href="http://freedns.afraid.org/">FreeDNS</a>. You can also register a domain that ends with 
             <code>securly.com</code>, such as, <a href="https://www.disablesecurly.com/">disablesecurly.com</a>. By doing this, when Securly tries to filter your webpage, the 
@@ -105,11 +105,11 @@
 
             <p>
             If the extension finds the string <code>translate.google.com</code> anywhere in the URL, it'll pass that URL into 
-            code>extractTranslateHostname</code>, which will just return <code>translate.google.com</code>. 
+            <code>extractTranslateHostname</code>, which will just return <code>translate.google.com</code>. 
             By doing this, it essentially overrides the detected hostname and sets it to that of Google Translate rather what it actually is. 
             </p>
             <p>
-            This is reflected in the subsequent HTTP request that is sent to Securly to check whether the page is blocked: 
+            This is reflected in the subsequent HTTP request that is sent to Securly to check whether the webpage is blocked or not: 
             <img alt="A screenshot of the Securly background page open in devtools" src="/detail/Securly/archive/assets/securly_devtools.png">
             </p>
             <p>
