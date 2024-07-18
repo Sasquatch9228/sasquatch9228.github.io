@@ -46,14 +46,14 @@
             <image src="assets/sh1mmer_light_banner.png"></image>
         </center>
         <h2>Shady Hardware 1nstrument Makes Machine Enrollment Retreat</h2>
-        SH1MMER is an exploit capable of completely unenrolling enterprise-managed Chromebooks. It was found by the Mercury Workshop team and was released on <u>January, Friday the 13th, 2023</u>. For more information, check out the <a href="https://coolelectronics.me/blog/breaking-cros-2">Writeup</a>.
+        SH1MMER is an exploit capable of completely unenrolling enterprise-managed Chromebooks. It was found by the Mercury Workshop team and was released on <u>January, Friday the 13th, 2023</u>. For more information about this exploit, check out the <a href="https://coolelectronics.me/blog/breaking-cros-2">Writeup</a> by CoolElectronics.
         <p>
         <b>Important Note:</b> Shim downloading has been taken down by Google because of legal reasons. Use <a target="_blank" href="https://dl.darkn.bio">this rehosted link</a> to get a shim for your Chromebook's board.
         <p>
         <b>If this isn't working for you, check "The Fog" section below.</b>
         <p>
         <h3>Exploit Requirements</h3>
-        A USB drive with at least 1GB of storage
+        A USB drive or SD card; with at least 8 GB of storage that is required for booting into SH1MMER
         <p>
         A personal computer or Chromebook; note that you do need administrator permissions on Windows/MacOS
         <h3>Flashing a USB drive</h3>
@@ -61,11 +61,11 @@
         <p>
         Alternate Method: Press <u>Esc + Refresh + Power</u> to enter Recovery Mode, and look up your codename on https://cros.tech/. Click your device, and your board name will be shown. Note that GRABBITER is the same as FLEEX (which is octopus) but is not shown on most online databases.
         <p>
-        If your board name is in the list below, your board has a publicly leaked RMA shim. If it's not, you'll have to source it on your own.
+        If your board name is in the list below, your board has a publicly leaked RMA shim, duh. If it's not, you'll have to source it on your own... somehow.
         <p style="font-size: 10px;">
         brask, brya, clapper, coral, corsola, dedede, enguarde, glimmer, grunt, hana, hatch, jacuzzi, kukui, nami, octopus, orco, pyro, reks, sentry, stout, strongbad, tidus, ultima, volteer, zork
         <p>
-        First you need to download a SH1MMER bin. Download a shim at dl.sh1mmer.me, and build it with the <a href="https://sh1mmer.me/builder.html" target="_self">SH1MMER Web Builder</a>.
+        First you need to download a SH1MMER bin. Download a shim at <a href="https://dl.sasquatch9228.dev" target="_self">dl.sasquatch9228.dev</a> (or any other source), and build it with the <a href="https://sasquatch9228.dev/SH1MMER-Rehost/builder.html" target="_self">SH1MMER Web Builder</a>.
         <p>
         You can also use the desktop version of wax for linux/WSL, located in the <a href="https://github.com/MercuryWorkshop/sh1mmer">GitHub</a> repository.
         <p>
@@ -77,7 +77,7 @@
         <p>
         IMPORTANT NOTE: Your USB drive will be completely cleared and partitioned.
         <p>
-        In the recovery utility window, click the settings icon and press "Use local image".
+        In the recovery utility window, click the settings icon (⚙) and press "Use local image".
         <p>
         <img src="assets/recovery_utility.png" style="width: auto; height: 350px" alt="Chromebook Recovery Utility" />
         </p>
@@ -138,7 +138,14 @@
         <img src="assets/secure_dns.png" alt="Secure DNS" />
         <img src="assets/mac_randomization.png" alt="MAC Address Randomization" />
         </p>
-        To take a kiosk exam, the safest option is to re-enroll back temporarily. Instructions for doing that are hosted at <a href="https://sh1mmer.me/kiosks.txt" target="_blank">kiosks.txt</a>. Saving a copy of this text file for future reference is probably a smart move to do.
+        To take a kiosk exam, the safest option is to re-enroll temporarily.
+        Instructions for doing that are hosted here:
+        <a href="https://sasquatch9228.dev/SH1MMER-Rehost/kiosks.html">Kiosk Instructions</a>, 
+        <i>
+        or alternatively, the original text file (for local copies): 
+        <a href="https://sasquatch9228.dev/SH1MMER-Rehost/assets/kiosks.txt" target="_self">Kiosks.txt</a>
+        </i>
+        Saving a copy of this text file for future reference is probably a smart move to do.
         <p>
         You can also use <a href="https://github.com/MercuryWorkshop/fakemurk">fakemurk</a> as a way to enroll your device but stay in developer mode and have control over policies and extensions. You may need to use this to get Wi-Fi passwords if <u>chrome://net-export</u> is blocked.
         </div>
