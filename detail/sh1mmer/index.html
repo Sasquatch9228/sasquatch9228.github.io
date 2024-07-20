@@ -48,7 +48,7 @@
         <h2>Shady Hardware 1nstrument Makes Machine Enrollment Retreat</h2>
         SH1MMER is an exploit capable of completely unenrolling enterprise-managed Chromebooks. It was found by the Mercury Workshop team and was released on <u>January, Friday the 13th, 2023</u>. For more information about this exploit, check out the <a href="https://coolelectronics.me/blog/breaking-cros-2">Writeup</a> by CoolElectronics.
         <p>
-        <b>Important Note:</b> Shim downloading has been taken down by Google because of legal reasons. Use <a target="_blank" href="https://dl.darkn.bio">this rehosted link</a> to get a shim for your Chromebook's board.
+        <b>Important Note:</b> Shim downloading has been taken down by Google because of legal reasons. Use <a target="_blank" href="https://dl.sasquatch9228.dev">this rehosted link</a> to get a shim for your Chromebook's board.
         <p>
         <b>If this isn't working for you, check "The Fog" section below.</b>
         <p>
@@ -62,7 +62,7 @@
         Alternate Method: Press <u>Esc + Refresh + Power</u> to enter Recovery Mode, and look up your codename on https://cros.tech/. Click your device, and your board name will be shown. Note that GRABBITER is the same as FLEEX (which is octopus) but is not shown on most online databases.
         <p>
         If your board name is in the list below, your board has a publicly leaked RMA shim, duh. If it's not, you'll have to source it on your own... somehow.
-        <p style="font-size: 10px;">
+        <p style="font-size: 20px;">
         brask, brya, clapper, coral, corsola, dedede, enguarde, glimmer, grunt, hana, hatch, jacuzzi, kukui, nami, octopus, orco, pyro, reks, sentry, stout, strongbad, tidus, ultima, volteer, zork
         <p>
         First you need to download a SH1MMER bin. Download a shim at <a href="https://dl.sasquatch9228.dev" target="_self">dl.sasquatch9228.dev</a> (or any other source), and build it with the <a href="https://sasquatch9228.dev/SH1MMER-Rehost/builder.html" target="_self">SH1MMER Web Builder</a>.
@@ -113,7 +113,7 @@
         <p>
         You only need to do this once, and it will let you use the SH1MMER exploit even after it's been completely patched.
         <ol>
-            <li>Unplug everything, open the back panel, disconnect the battery to disable Write Protection, plug in the charger</li>
+            <li>Unplug everything, open the back panel, disconnect the battery to disable Write Protection, plug in the charger.</li>
             <li>Boot into SH1MMER and use "Un-Enroll / Deprovision" (yes it will show an error, but that doesn't matter)<p>(you will also need to run "<code>Disable block_devmode</code>" if you're using the old legacy version).</li>
             <li>Go to the bash shell and run this command: <code>/usr/share/vboot/bin/set_gbb_flags.sh 0x8090</code>. Do not use "<code>Reset GBB Flags</code>" after this.</li>
             <li>Exit SH1MMER, unplug everything, reconnect the battery, and reconnect the charger.</li>
