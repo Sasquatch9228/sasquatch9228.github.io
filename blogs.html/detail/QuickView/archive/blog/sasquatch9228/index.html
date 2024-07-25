@@ -25,7 +25,7 @@
             <h2>Blog Post Introduction:</h2>
             </center>
             <p>
-            This blog post mainly attempts to explain the process in which ading2210 (vk6#7391), along with Bypassi (Bypassi#7037), created <a href="https://quickview-exploit.pages.dev">QuickView</a>, an exploit which allows for the creation of webview windows with arbitrary URLs. The exploit works even on managed accounts with features such as Incognito Mode disabled, allowing users to access webpages that would normally be blocked via extensions.
+            This blog post mainly attempts to explain the process in which ading2210 (vk6#7391), along with Bypassi (Bypassi#7037), created <a href="https://quickview-exploit.pages.dev">QuickView</a>, an exploit which allows for the creation of webview windows with arbitrary URLs. The exploit works even on managed accounts with features such as Incognito Mode and Guest Mode disabled, allowing users to access webpages that would normally be blocked via extensions or Chrome policies.
             </p>
             <h2>A Summary of Point-Blank:</h2>
             <p>If you haven't been in the whole "unblocking" and "bypassing" community and do not know about Point-Blank, it's basically a trick which allows you to run arbitrary JavaScript on privileged webpages, such as <code>chrome://</code> and also <code>chrome-extension://</code> URLs. It wouldn't really be considered an exploit though, since it is technically intended behavior.
@@ -92,7 +92,7 @@
             <h2>The Final Exploit Result:</h2>
             <p>So, what was this all for? Well, for starters, because QuickOffice is found on every single Chrome OS device, its the first universal webview exploit found so far. Thus, it should work on any managed Chromebook which has bookmarklets allowed. I am pretty sure this has a lot more potential outside of just unblocking a few webpages, so feel free to experiment with the exploit yourself.</p>
             <p>If you want to check out the finalized proof of concept, ading2210 has deployed it to <a href="https://quickview-exploit.pages.dev">Cloudflare Pages</a> for easy access. If you don't have a Chromebook but still want to see the exploit's source code, ading2210 has published it on <a href="https://github.com/ading2210/quickview">GitHub</a> as well.</p>
-            <p>I would once again like to thank Bypassi for helping with this exploit, specifically by finding a way to trigger Point-Blank, as well as for finding the <code>chrome.identity</code> payload which was extremely useful.</p>
+            <p>I would once again like to thank Bypassi for helping with this exploit, specifically by finding a way to trigger Point-Blank, as well as for finding the <code>chrome.identity</code> payload which was extremely useful for this exploit.</p>
             <p>Funnily enough, at the same time I was writing this blog post, Bypassi discovered and released <a href="https://ltmeat.bypassi.com">LTMEAT</a>, which is a much simpler and more practical exploit allowing for the disabling of virtually any Chrome extension. Use that exploit instead of this one if all you care about is unblocking stuff on your school-managed Chromebook.</p>
         </div>
     </body>
