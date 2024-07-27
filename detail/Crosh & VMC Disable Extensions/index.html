@@ -40,23 +40,29 @@
             <p>
             <ol>
                 <h3>Instructions</h3>
+                <li>Back up any data that you have stored on your Chromebook before you powerwash it.</li>
+                <li>f you are doing the second variation of this exploit, note down any Extension IDs. You may also want to do this if you intend on disabling all of the extensions, since sometimes that will fail and will require you to specify each extension you want to disable.</li>
                 <li><a href="https://chromium.googlesource.com/chromiumos/docs/+/master/developer_mode.md#dev-mode" target="_blank">Powerwash the Chromebook by attempting to enable Developer Mode</a>. You may want to back up important local data on your account profile before performing this step of the exploit.</li>
                 <li>Sign back in to the Chromebook.</li>
-                <li>Disconnect from your internet network immediately to prevent the extensions from installing automatically.</li>
+                <li>Login to your Google Account as normal, but disconnect from your internet network immediately to prevent the extensions from installing automatically.</li>
+                <li>You should be logged in into your account, but without any extensions installed due to being offline.</li>
+                <li>From here, the instructions are split, so follow the instructions for the method that you want to do.</li>
                 <details>
                     <summary><u>To disable all extensions</u></summary>
                     <li>Open the Crosh terminal. This can be done by pressing <code>Ctrl+Alt+T</code>.</li>
-                    <li>Run <code>vmc create-extra-disk --size 1 /home/chronos/user/Extensions</code> in the crosh window. If it fails with a "file exists" error, use the method to disable specific extensions below.</li>
+                    <li>Run the <code>vmc create-extra-disk --size 1 /home/chronos/user/Extensions</code> command in the crosh window. If it fails with a "file exists" error, use the method to disable specific extensions below.</li>
+                    <li>Connect back to your internet network. The extensions should not install automatically by themselves.</li>
                 </details>
                 <details>
                     <summary><u>To disable specific extensions</u></summary>
                     <li>Navigate to <u>chrome://extensions</u>.</li>
-                    <li>Connect to your internet network.</li>
-                    <li>When an extension is installed automatically, immediately disconnect from your internet network. If you want that extension to be enabled while other extensions are disabled, restart these instructions to try this step again.</li>
+                    <li>Enable your internet, and immediately disable it when an extension is installed. </li>
+                    <li>When an extension is installed automatically, immediately disconnect from your internet network. If you want that extension to be enabled while other extensions are disabled, restart these instructions by powerwashing your Chromebook to try this step again.</li>
                     <li>Open the Crosh terminal. This can be done by pressing <code>Ctrl+Alt+T</code>.</li>
-                    <li>For each extension you want to disable, run <code>vmc create-extra-disk --size 1 /home/chronos/user/Extensions/{extension_id}</code>, replacing "{extension_id}" with the extension ID.</li>
+                    <li>For each extension that you want to disable, run this command: <code>vmc create-extra-disk --size 1 /home/chronos/user/Extensions/{extension_id}</code>, replacing "<code>{extension_id}</code>" with the Extension ID.</li>
+                    <li>Each command you run in the crosh terminal should look something like this: <code>vmc create-extra-disk --size 1 /home/chronos/user/Extensions/cjpalhdlnbpafiamejdnhcphjbkeiagm</code>.</li>
                 </details>
-                <li>Connect back to your internet network. The extensions should not install automatically by themselves.</li>
+                <li>Re-enable your internet connection, and if you typed/pasted in the Extension IDs correctly, those specific extensions should be blocked from ever being installed again.</li>
             </ol>
         </div>
     </body>
